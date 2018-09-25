@@ -1,17 +1,11 @@
-{% load staticfiles %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Home page</title>
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}" >
-    <script src="{% static 'js/bootstrap.min.js' %}"> </script>
-</head>
-<body>
-    Task Page
-    <a href="{% url 'task-sign-out' %}"> log out </a>    
-</body>
-</html>
+{% extends 'base.html' %}
+{% block title %}
+Home
+{% endblock %}
+{% block page %}
+Home page <br>
+Username: {{request.user}}
+<br>
+<a href="{% url 'task-sign-out' %}"> log out </a>|
+<a href="{% url 'task-sign-up' %}"> Sign up </a>
+{% endblock %}
