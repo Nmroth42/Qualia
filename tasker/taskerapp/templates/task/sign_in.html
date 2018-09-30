@@ -1,4 +1,5 @@
 {% extends 'base_signup.html' %}
+{% load bootstrap3%}
 {% block title %}
 Sign in
 {% endblock %}
@@ -8,11 +9,13 @@ Sign in
 {% block content %}
 <form method="POST">
     {% csrf_token %}
-    {{form}}
+    {% bootstrap_form form%}
     <br>
    
-    <br>
+  
     <button type="submit" style="margin-left:70%;"class="btn btn-pink ">Sign in</button>
+     <br >
 
+     or <a href="{% url 'task-sign-up' %}"> Sign up </a>
 </form>
 {% endblock %}

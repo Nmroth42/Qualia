@@ -1,5 +1,8 @@
+.body-content {
+    background: #EDEEF0 !important;
+}
 .bg-blue{
-background-color:  #2AA3D5}
+background-color:  #EDEEF0}
 
 .bg-white{
     background-color: white}
@@ -12,3 +15,126 @@ background-color:  #2AA3D5}
 .btn-pink:hover, btn-pink:focus {
     background-color: #DA4F5D;
 }
+
+body {
+   
+    background-color:#2AA3D5;
+    overflow:auto;
+}
+.header {
+    background-color:#FFFF;
+ box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.75) ;
+ z-index:100;
+}
+/*SIDEBAR*/
+.content {
+
+}
+.sidebar {
+    height:100vh;
+    
+    top:0px;
+    left:0px;
+    padding:0px;
+    background-color:#FFFF;
+    overflow:auto;
+    box-shadow: -1px 0px 2px 0px rgba(0,0,0,0.75) inset;
+}
+
+.sidebar > div:first-child{
+    padding: 20px 10px;
+    transition: 2s ease-in-out;
+    
+    font-size: 16px;
+    background-color: #F4F7F7;   
+    box-shadow: -1px 1px 3px 0px rgba(0,0,0,0.75) inset;
+}
+.userProf{
+    padding:0px;
+    margin:0px !important;
+}
+.logo {
+    clip-path: circle(50.1% at 50% 50%);
+    padding: 0;
+    position: relative;
+    
+   
+}
+.card {
+    margin-top:15px !important;
+    margin-bottom:30px !important;
+    padding-top:30px !important;
+}
+
+.sidebar .list-group > span {
+    margin-top: 20px ;
+    box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.75) ;
+   
+}
+.sidebar .list-group .list-group-item {
+    background: #FFFF ;
+    transition: .15s ease-in-out;
+    transition-property: background;
+    padding: 7px 0px;
+    font-weight:300;
+    font-size: 14px;
+    color: black;
+    
+}
+.sidebar .list-group {
+   
+    padding: 20px 15px;
+   
+}
+.sidebar .list-group .list-group-item:hover {
+    background-color: #F4F7F7;   
+    color: black;
+    transition: .0s ease-in-out;
+    transition-property: background;
+}
+.sidebarButton{
+    position: absolute;
+    left:0px;
+    width: 60px;
+    top:12px;
+    padding-right: 10px;
+    
+}
+.sidebarButton:hover {
+    cursor: pointer;
+}
+.header{
+  height:50px;
+}
+.textHeader {
+    position: absolute;
+    top:12px;
+    left:50px;
+}
+.textUser {
+    position: absolute;
+    top:12px;
+    right:30px;
+}
+#btn-top {
+    display: inline-block;
+    background-color: #FFFF;
+    width:100%;
+    height: 50px;
+    text-align: center;
+   
+    left: 0px;
+    position: fixed;
+    bottom: 0px;
+   
+    transition: background-color .3s;
+    z-index: 1000;
+  }
+  #btn-top:hover{
+      cursor: pointer;
+    background-color: #F4F7F7;   
+
+  }
+  .upIcon{  
+  }
+  

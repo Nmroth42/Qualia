@@ -18,5 +18,8 @@ urlpatterns = [
     url(r'^task/$', views.task_home, name="task-home"),
     url(r'^task/sign-up/$', views.task_sign_up, 
         name='task-sign-up'),
+    url(r'^task/account/$', views.task_account, 
+        name='task-account'),
+        
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
