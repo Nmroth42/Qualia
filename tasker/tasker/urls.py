@@ -20,6 +20,12 @@ urlpatterns = [
         name='task-sign-up'),
     url(r'^task/account/$', views.task_account, 
         name='task-account'),
+    url(r'^task/gigs/(?P<id>[0-9]+)/$', views.gig_detail, 
+        name='gig-detail'),
+    url(r'^task/my-gigs/$', views.my_gigs, 
+        name='my-gigs'),
+    url(r'^task/create-gig/$', views.create_gig, 
+        name='create-gig'),
         
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

@@ -1,7 +1,8 @@
 from django import forms
 
 from django.contrib.auth.models import User
-from taskerapp.models import Task
+from taskerapp.models import Profile
+from taskerapp.models import Gig
 
 class UserForm(forms.ModelForm):
     email = forms.CharField(max_length=100, required=True)
@@ -17,7 +18,12 @@ class UserFormForEdit(forms.ModelForm):
         fields = ("first_name", "last_name", "email")
         
 
-class TaskForm(forms.ModelForm):
+class ProfileForm(forms.ModelForm):
     class Meta:
-        model = Task
+        model = Profile
         fields = ("name", "phone", "address", "logo",)
+
+class GigForm(forms.ModelForm):
+    class Meta:
+        model = Gig
+        fields = ("title", "category", "description", "price", "photo", "status",)

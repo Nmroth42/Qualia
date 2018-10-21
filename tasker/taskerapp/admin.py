@@ -1,6 +1,7 @@
 from django.contrib import admin
 
-from taskerapp.models import Task
+from taskerapp.models import Profile, Gig
 
-admin.site.register(Task)
+admin.site.register(Profile)
+admin.site.register(Gig)
 

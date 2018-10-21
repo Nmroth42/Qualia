@@ -1,11 +1,15 @@
 .body-content {
-    background: #EDEEF0 !important;
+    background-color: #CDDCDC;
+    background-image: radial-gradient(at 50% 100%, rgba(255,255,255,0.50) 0%, rgba(0,0,0,0.50) 100%), linear-gradient(to bottom, rgba(255,255,255,0.25) 0%, rgba(0,0,0,0.25) 100%);
+    background-blend-mode: screen, overlay;
+   
 }
 .bg-blue{
-background-color:  #EDEEF0}
+    background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%); }
 
 .bg-white{
-    background-color: white}
+    background-color: white;
+}
     
 
 .btn-pink {
@@ -22,23 +26,41 @@ body {
     overflow:auto;
 }
 .header {
-    background-color:#FFFF;
- box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.75) ;
- z-index:100;
+background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+ z-index:1000;
+ color:white;
+ height: 60px;
+ 
+ box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+
 }
 /*SIDEBAR*/
 .content {
-
+ min-height: 100vh;
+ right: 0px;
+ background-color: #CDDCDC;
+ background-image: radial-gradient(at 50% 100%, rgba(255,255,255,0.50) 0%, rgba(0,0,0,0.50) 100%), linear-gradient(to bottom, rgba(255,255,255,0.25) 0%, rgba(0,0,0,0.25) 100%);
+ background-blend-mode: screen, overlay;
+ 
+}
+.mainHeader {
+    position: relative;
+    margin: 11px;
+    margin-top:21px;
+    border-radius: 4px;
 }
 .sidebar {
     height:100vh;
-    
+    z-index: 100;
     top:0px;
+    border-top-right-radius: 12px;
+   
     left:0px;
     padding:0px;
     background-color:#FFFF;
     overflow:auto;
-    box-shadow: -1px 0px 2px 0px rgba(0,0,0,0.75) inset;
+    
+    box-shadow: -1px 0px 2px 0px rgba(0,0,0,0.55) inset;
 }
 
 .sidebar > div:first-child{
@@ -46,8 +68,8 @@ body {
     transition: 2s ease-in-out;
     
     font-size: 16px;
-    background-color: #F4F7F7;   
-    box-shadow: -1px 1px 3px 0px rgba(0,0,0,0.75) inset;
+    background-color:#FFFF;
+    box-shadow: -1px 0px 2px 0px rgba(0,0,0,0.55) inset;
 }
 .userProf{
     padding:0px;
@@ -67,7 +89,7 @@ body {
 }
 
 .sidebar .list-group > span {
-    margin-top: 20px ;
+    margin-top: 5px ;
     box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.75) ;
    
 }
@@ -78,8 +100,7 @@ body {
     padding: 7px 0px;
     font-weight:300;
     font-size: 14px;
-    color: black;
-    
+   
 }
 .sidebar .list-group {
    
@@ -88,41 +109,65 @@ body {
 }
 .sidebar .list-group .list-group-item:hover {
     background-color: #F4F7F7;   
-    color: black;
+   
     transition: .0s ease-in-out;
     transition-property: background;
 }
-.sidebarButton{
+.sidebarButtonWrapper{
     position: absolute;
     left:0px;
     width: 60px;
-    top:12px;
+    top:0px;
     padding-right: 10px;
+    height:60px;
+    background:#4BAFFE;
+  
+  
+}
+.sidebarButton {
+    position: absolute;
+    top:17px;
+    right:20px;
+   
+}
+@media only screen and (max-width: 900px) {
+    .sidebarButtonWrapper {
+        background:#41B9FE;
+    }
+    .sidebar {
+       
+        border-top-right-radius: 0px;
+    }
+  }
+.sidebarUserWrapper {
+    color:rgba(0, 0, 0, 0.205);
     
+   
 }
 .sidebarButton:hover {
     cursor: pointer;
 }
-.header{
-  height:50px;
-}
+
 .textHeader {
     position: absolute;
-    top:12px;
-    left:50px;
+    top:15px;
+  
+    left:80px;
+    font-size: 18px;
 }
 .textUser {
     position: absolute;
-    top:12px;
+    top:15px;
+    font-size: 18px;
     right:30px;
 }
 #btn-top {
     display: inline-block;
-    background-color: #FFFF;
+    background-color: white;
     width:100%;
-    height: 50px;
+    height: 48px;
     text-align: center;
-   
+   border-top:2px solid  #D8E4E4;
     left: 0px;
     position: fixed;
     bottom: 0px;
@@ -130,11 +175,46 @@ body {
     transition: background-color .3s;
     z-index: 1000;
   }
-  #btn-top:hover{
+  #btn-top:hover {
       cursor: pointer;
-    background-color: #F4F7F7;   
-
+      background-color: #F4F7F7;   
+     
   }
   .upIcon{  
+     /* color:#6BA040; */
   }
-  
+  .list-group-span {
+      padding-top: 0px;
+     
+
+
+       background-color: #F4F7F7;   
+  }
+  .img-logo {
+    width: 100%;
+    display: none;
+    max-width: 100px;
+    height: 100px;
+  }
+ 
+  .footer {
+    background-color: white;
+   
+    color:white;
+      position: relative;
+   
+    display: inline-block;
+   
+    height: 148px;
+    width: 100%
+  }
+  .wrapper-thumbnail {
+    background-color: white;
+   border: 3px solid #DAE5E5;
+   padding-top:14px;
+  }
+  .content-wrapper {
+   
+    
+    padding: 10px;
+  }

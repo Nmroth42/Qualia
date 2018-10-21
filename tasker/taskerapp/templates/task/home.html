@@ -1,97 +1,51 @@
 {% extends 'base.html' %}
 {% load bootstrap3% }
+{% load staticfiles %}
 {% block title %}
 Home
 {% endblock %}
 
 {% block page %}
+<div class="content-wrapper">
+<div class = "row">
+       
+    {% for gig in gigs %}
+    <div class = "col-lg-2 wrapper-thumbnail">
+       <a href = "#"></a>
+          <img class="img-thumbnail" href="{% url 'gig-detail' gig.id %}" src = "/media/{{gig.photo}}" alt = "Generic placeholder thumbnail">
+        </a>
+            <div class="caption">
+                <p><a href="{% url 'gig-detail' gig.id %}">{{gig.title}}</a></p>
+            
+            <p><span>by <a href="#">{{gig.user.username}}</a><b class="float-right">${{gig.price}}</b></span></p>
+            </div> 
+       
 
-<div class="text-uppercase">
-    Dashboard
-    <a href="" class="list-group-item">task 1</a>
-    <a href="" class="list-group-item">task 2</a>
-    <a href="" class="list-group-item">task 3</a>
-</div>
-
-
-<div class="list-group text-center">
-    <span class="text-uppercase">
-    Dashboard
-    <a href="" class="list-group-item">task 1</a>
-    <a href="" class="list-group-item">task 2</a>
-    <a href="" class="list-group-item">task 3</a>
-    </span>
     </div>
 
-<div class="list-group text-center">
-    <span class="text-uppercase">
-    Dashboard
-    <a href="" class="list-group-item">task 1</a>
-    <a href="" class="list-group-item">task 2</a>
-    <a href="" class="list-group-item">task 3</a>
-    </span>
-    </div>
-
-<div class="list-group text-center">
-    <span class="text-uppercase">
-    Dashboard
-    <a href="" class="list-group-item">task 1</a>
-    <a href="" class="list-group-item">task 2</a>
-    <a href="" class="list-group-item">task 3</a>
-    </span>
-    </div>
+    
+    {% endfor%}
+ </div>
+ </div>
 
 
-<div class="list-group text-center">
-    <span class="text-uppercase">
-    Dashboard
-  
-    <a href="" class="list-group-item">task 1</a>
-    <a href="" class="list-group-item">task 2</a>
-    <a href="" class="list-group-item">task 3</a>
-    </span>
-    </div>
 
-<div >
 
-<div class="list-group text-center">
-        <span class="text-uppercase">
-        Dashboard
+
+
+
+
+
+<!-- <div class="card">
+        <div class="card-body">
+            <h3 class="text-center"> <b>{% block heading %}gigi{% endblock %}</b></h3>
+          
       
-        <a href="" class="list-group-item">task 1</a>
-        <a href="" class="list-group-item">task 2</a>
-        <a href="" class="list-group-item">task 3</a>
-        </span>
         </div>
+    </div> -->
     
-    <div >
+   <!-- <p> ${ message }$ </p> -->
 
-<div class="list-group text-center">
-        <span class="text-uppercase">
-        Dashboard
-      
-        <a href="" class="list-group-item">task 1</a>
-        <a href="" class="list-group-item">task 2</a>
-        <a href="" class="list-group-item">task 3</a>
-        </span>
-        </div>
-    
-    <div >
-
-<div class="list-group text-center">
-        <span class="text-uppercase">
-        Dashboard
-      
-        <a href="" class="list-group-item">task 1</a>
-        <a href="" class="list-group-item">task 2</a>
-        <a href="" class="list-group-item">task 3</a>
-        </span>
-        </div>
-    
-    <div >
-    
-    <p> ${ message }$ </p>
-</div>
 
 {% endblock %}
 

@@ -1,27 +1,26 @@
 {% extends 'base.html' %}
-{% load  bootstrap3 %}
-{% block page %}
+{% load bootstrap3 %}
+{% load staticfiles %}
 
+{% block page %}
+{{ error }}
 <div class="card">
     <div class="card-body">
-        <h3 class="text-center"> <b>Edit</b></h3>
+        <h3 class="text-center"> <b>Create gig</b></h3>
         <br>
-        
         <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
-            {% bootstrap_form user_form %}
-            {% bootstrap_form task_form %}
+            {% bootstrap_form gig_form %}
+
             <br>
 
             {% buttons %}
-            <button type="submit"  class="btn btn-pink float-right ">Update</button>
+            <button type="submit" class="btn btn-pink float-right">Create gig</button>
             <br>
             {% endbuttons %}
 
         </form>
-
     </div>
 
 </div>
-
 {% endblock %}
