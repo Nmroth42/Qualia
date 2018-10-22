@@ -51,8 +51,8 @@ background:rgb(255, 255, 255);
 .sidebar {
     height:100vh;
     z-index: 100;
-    top:0px;
-    
+    top:13px;
+    margin-bottom: 19px;
     left:0px;
     padding:0px;
     background-color:#FFFF;
@@ -81,7 +81,7 @@ background:rgb(255, 255, 255);
    
 }
 .card {
-    margin-top:15px !important;
+    margin-top:12px !important;
     margin-bottom:30px !important;
     padding-top:30px !important;
 }
@@ -221,6 +221,6 @@ background:rgb(255, 255, 255);
   }
   .content-wrapper {
    
-    
+   
     padding: 10px;
   }
