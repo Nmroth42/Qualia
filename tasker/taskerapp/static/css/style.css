@@ -31,7 +31,7 @@ background:rgb(255, 255, 255);
  color:black;
  height: 60px;
  
- box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+ box-shadow: 0 3px 6px rgba(0,0,0,0.23);
 
 }
 /*SIDEBAR*/
@@ -52,14 +52,13 @@ background:rgb(255, 255, 255);
     height:100vh;
     z-index: 100;
     top:0px;
-    border-top-right-radius: 12px;
-    border-bottom-right-radius: 12px;
+    
     left:0px;
     padding:0px;
     background-color:#FFFF;
     overflow:auto;
     
-    box-shadow: -1px 0px 2px 0px rgba(0,0,0,0.55) inset,  0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.23);
 }
 
 .sidebar > div:first-child{
@@ -68,10 +67,10 @@ background:rgb(255, 255, 255);
     
     font-size: 16px;
     background-color:#FFFF;
-    box-shadow: -1px 0px 2px 0px rgba(0,0,0,0.55) inset;
+   /* box-shadow: -1px 0px 2px 0px rgba(0,0,0,0.55) inset; */
 }
 .userProf{
-    padding:0px;
+    padding-bottom: 0px !important;
     margin:0px !important;
 }
 .logo {
@@ -89,7 +88,8 @@ background:rgb(255, 255, 255);
 
 .sidebar .list-group > span {
     margin-top: 5px ;
-    box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.75) ;
+    box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.603) ;
+    
    
 }
 .sidebar .list-group .list-group-item {
@@ -99,11 +99,11 @@ background:rgb(255, 255, 255);
     padding: 7px 0px;
     font-weight:300;
     font-size: 14px;
-   
+  
 }
 .sidebar .list-group {
-   
-    padding: 20px 15px;
+    margin-top: 0px !important;
+    padding: 0px 15px;
    
 }
 .sidebar .list-group .list-group-item:hover {
@@ -134,7 +134,7 @@ background:rgb(255, 255, 255);
         
     }
     .sidebar {
-        box-shadow:  0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+        box-shadow:   0 3px 6px rgba(0,0,0,0.23);
         border-top-right-radius: 0px;
         border-bottom-right-radius: 0px;
     }
