@@ -24,6 +24,7 @@ class ProfileForm(forms.ModelForm):
         fields = ("name", "phone", "address", "logo",)
 
 class GigForm(forms.ModelForm):
+    description = forms.CharField( widget=forms.Textarea)
     class Meta:
         model = Gig
-        fields = ("title", "category", "description", "price", "photo", "status",)
+        fields = ["title", "category", "description", "price", "photo", "status"]

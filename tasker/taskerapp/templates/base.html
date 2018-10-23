@@ -26,54 +26,55 @@
 <body class="body-content">
     <div id="app">
         <div class="Main">
-        <div class="mainHeader">
-            <div class="header text-center">
-                <span class="sidebarButtonWrapper" @click="toggle"><span class="sidebarButton"><i class="material-icons">${
-                            message }$</i></span></span>
+            <div class="mainHeader">
+                <div class="header text-center">
+                    <span class="sidebarButtonWrapper" @click="toggle"><span class="sidebarButton"><i class="material-icons">${
+                                message }$</i></span></span>
 
-                <div class="textHeader">Qualia</div>
-                <span class="textUser">{{request.user}}</span>
+                    <div class="textHeader">Qualia</div>
+                    <span class="textUser">{{request.user}}</span>
+                </div>
             </div>
-        </div>
 
-        <div class="container-fluid" id="app">
-            <div class="row" :class="{'left-padding-sidebar': !isOpen}">
+            <div class="container-fluid">
+                <div class="row" :class="{'left-padding-sidebar': !isOpen}">
 
-                <div class="col-lg-3 col-md-2 col-sm-2 sidebar " style="left:0px;" :class="{'Hide': isOpen}">
-                    {% block sidebar %}
-                    <div class="text-center userProf">
-                        <img class="logo" src=" {% if user.profile %} {{MEDIA_URL}}{{request.user.profile.logo}} {% else %} {% static 'img/man-under-tree-512.png' %} {% endif %}"
-                            width="85" height="85">
-                        <hr>
-                        <span class="sidebarUserWrapper">
-                            <a href="{% url 'task-sign-out' %}"> Log out </a>|
-                            <a href="{% url 'task-account' %}"> Edit </a>
-                        </span>
-                        <hr>
-                    </div>
-                    <div class="list-group text-center">
-                        <span class="text list-group-span">
-                            <span class="sidebarUserWrapper"> Menu
+                    <div class="col-lg-4 col-md-2 col-sm-2 sidebar " style="left:0px;" :class="{'Hide': isOpen}">
+                        {% block sidebar %}
+                        <div class="text-center userProf">
+                            <img class="logo" src=" {% if user.profile %} {{MEDIA_URL}}{{request.user.profile.logo}} {% else %} {% static 'img/man-under-tree-512.png' %} {% endif %}"
+                                width="85" height="85">
+                            <hr>
+                            <span class="sidebarUserWrapper">
+                                <a href="{% url 'task-sign-out' %}"> Log out </a>|
+                                <a href="{% url 'task-account' %}"> Edit </a>
                             </span>
+                            <hr>
+                        </div>
+                        <div class="list-group text-center">
+                            <span class="text list-group-span">
+                                <span class="sidebarUserWrapper"> Menu
+                                </span>
 
-                            <a href="{% url 'task-home' %}" class="list-group-item"> Main page </a>
-                            <a href="{% url 'my-gigs' %}" class="list-group-item">My gigs</a>
-                            <a href="{% url 'create-gig' %}" class="list-group-item">Create a gig</a>
-                        </span>
+                                <a href="{% url 'task-home' %}" class="list-group-item "> Main page </a>
+                                <a href="{% url 'my-gigs' %}" class="list-group-item">My gigs</a>
+                                <a href="{% url 'create-gig' %}" class="list-group-item">Create a gig</a>
+                            </span>
+                        </div>
+                        {% endblock %}
                     </div>
-                    {% endblock %}
-                </div>
 
-                <div class="col-lg-9 col-md-10 col-sm-10 content" :class="{'col-lg-12': isOpen}">
-                    {% block page %}{% endblock %}
+                    <div class="col-lg-8 col-md-10 col-sm-10 content" :class="{'col-lg-12': isOpen}">
+                        {% block page %}{% endblock %}
+
+                    </div>
+
                 </div>
 
             </div>
         </div>
-        <div id="btn-top" class="top"><span ><i style="font-size: 50px" class="material-icons">expand_less</i></span></div>
-    </div>
-      
 
+        <div id="btn-top" class="top"><span><i style="font-size: 50px" class="material-icons">expand_less</i></span></div>
         <div class="footer">
             <img alt="" class="img-logo" src="{% static 'img/man-under-tree-512.png' %}">
         </div>
@@ -115,12 +116,15 @@
                 }, 450);
             });
         });
-
-        $(document).on('click', '.alink', function () {
-            var url = $("#Url").attr("data-url");
-            document.location.href = url;
-        });
        
+     
+
+         function myFunction(arg) {
+            var id = '#' + arg
+            var url = $(id).attr("data-url");
+            document.location.href = url;
+        }
+
     </script>
     </div>
 </body>

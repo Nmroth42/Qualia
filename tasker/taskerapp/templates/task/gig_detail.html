@@ -1,14 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Gig Detail</title>
-</head>
-<body>
-    <div>
-        Gig page
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block page %}
+
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="text-center">     {{gig.title}} </h5>
+                <hr/>
+                <img src="/media/{{gig.photo}}"style="display: block;margin: auto;"  alt="" class="img-fluid ">
+            </div>
+        </div>
+
+        <div class="card">
+            </h5> Description </h5>
+                <div class="card-body">
+                    {{gig.description}}
+                   
+                </div>
+
     </div>
-</body>
-</html>
+</div>
+
+{% endblock %}
