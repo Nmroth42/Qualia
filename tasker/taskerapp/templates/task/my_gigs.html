@@ -1,2 +1,39 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
+
+{% block page %}
+
+<div class="card">
+    <h5 class="text-center card-header"> <b>My gigs</b></h5>
+    <div class="card-body">
+        <table class="table table-bordered table-striped">
+            <thead class="">
+                <tr>
+                  <th>
+                        <th> title</th>
+                        <th>create time</th>
+                        
+                    </th>
+
+                </tr>
+            </thead>
+            <tbody>
+                {% for gig in gigs %}
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td><a href="{% url 'gig-detail' gig.id %}">{{gig.title}}</a></td>
+                    <td>{{gig.create_time}}</td>
+                    
+
+                </tr>
+                {% endfor %}
+            </tbody>
+
+        </table>
+
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from taskerapp.forms import UserForm, ProfileForm, UserFormForEdit, GigForm
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
-from .models import Gig
+from .models import Gig, Profile
 # Create your views here.
 def home(request):
     return redirect(task_home)
@@ -77,5 +77,12 @@ def my_gigs(request):
     gigs = Gig.objects.filter(user = request.user)
     return render(request, 'task/my_gigs.html', {"gigs":gigs })
 
+@login_required(login_url='/task/sign-in/' )
+def profile(request, username):
+    try:
+        profile = Profile.objects.get(user__username=username)
+    except Profile.DoesNotExist:
+        return redirect('/')
+    return render(request, 'task/profile.html', {"profile":profile})
 
 

@@ -26,6 +26,8 @@ body {
 
     background-color: #2AA3D5;
     overflow: auto;
+    font-family: 'Roboto', sans-serif;
+    color: rgba(0, 0, 0, 0.87);
 }
 
 /*----------------Buttons--------------*/
@@ -90,6 +92,7 @@ body {
     transition-property: background;    
 
 }
+
 .sidebarButtonWrapper:hover {
     background-color: #F4F7F7;
 
@@ -166,7 +169,17 @@ body {
     padding-top: 14px;
     max-height: 400px !important;
     min-height: 300px;
-    transition: .0s ease-in-out;
+    transition: .15s ease-in-out;
+    transition-property: background;
+}
+.wrapperBlock {
+    transition: .15s ease-in-out;
+    transition-property: background;
+}
+.wrapperBlock:hover {
+    background-color: #F4F7F7;
+    cursor: pointer;
+    transition: .15s ease-in-out;
     transition-property: background;
 }
 
@@ -237,7 +250,7 @@ body {
 
 .list-group-span {
     padding-top: 0px;
-    background-color: #F4F7F7;
+    background-color:  #F7F7F7;
 }
 
 .sidebarUserWrapper {

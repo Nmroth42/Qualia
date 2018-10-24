@@ -15,7 +15,7 @@ Home
          id="{{gig.id}}" :class="{'col-lg-6': !isOpen}" >
 
            
-            <img class="img-thumbnail"  href="{% url 'gig-detail' gig.id %}" src="/media/{{gig.photo}}" alt="Generic placeholder thumbnail">
+            <img class="img-thumbnail"  href="{% url 'gig-detail' gig.id %}" src="/media/{{gig.photo}}" >
             <hr>
             <div class="gig-title text-center">
                {{gig.title}} 
@@ -25,7 +25,7 @@ Home
             <br>
             <br>
             <div class="gig-bottom">
-                <p><span>by {{gig.user.username}}</span></p>
+                <p><span> {{gig.user.username}}</span></p>
             </div>
 
         </div>

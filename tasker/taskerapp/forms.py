@@ -15,13 +15,13 @@ class UserFormForEdit(forms.ModelForm):
     email = forms.CharField(max_length=100, required=True)
     class Meta:
         model = User
-        fields = ("first_name", "last_name", "email")
+        fields = ("first_name", "last_name", "email", "username")
         
 
 class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ("name", "phone", "address", "logo",)
+        fields = ("logo",)
 
 class GigForm(forms.ModelForm):
     description = forms.CharField( widget=forms.Textarea)

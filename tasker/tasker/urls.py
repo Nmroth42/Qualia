@@ -26,6 +26,8 @@ urlpatterns = [
         name='my-gigs'),
     url(r'^task/create-gig/$', views.create_gig, 
         name='create-gig'),
+        url(r'^task/profile/(?P<username>\w+)/$', views.profile, 
+        name='profile'),
         
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
