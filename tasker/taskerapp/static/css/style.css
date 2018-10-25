@@ -373,6 +373,11 @@ body {
         width: 100% !important;
         display: inline-block;
     }
+    .content{
+        padding: 6px;
+      margin-top:53px;
+        
+    }
 
 }
 .expand-less {
