@@ -25,55 +25,62 @@
 </style>
 
 <body class="body-content">
-    <div id="app">
-        <div class="Main">
-            <div class="mainHeader">
-                <div class="header text-center">
-                    <span class="sidebarButtonWrapper" @click="toggle"><span class="sidebarButton"><i class="material-icons">${
-                                message }$</i></span></span>
-
-                  <div class="textHeader ">Qualia</div>
-                    
-                </div>
-            </div>
-
-            <div class="container-fluid">
-                <div class="row" :class="{'left-padding-sidebar': !isOpen}">
-
-                    <div class="col-lg-4 col-md-2 col-sm-2 sidebar " style="left:0px;" :class="{'Hide': isOpen}">
-                        {% block sidebar %}
-                        <div class="text-center userProf">
-                            <img class="logo" src=" {% if user.profile %} {{MEDIA_URL}}{{request.user.profile.logo}} {% else %} {% static 'img/man-under-tree-512.png' %} {% endif %}"
-                                width="85" height="85">
-                                
-            <div style="margin-top:12px;">{{request.user.username}}</div>
-                               
-                            <hr>
-                            
-                            <span class="sidebarUserWrapper">
-                                <a href="{% url 'task-sign-out' %}"> Log out </a>|
-                                <a href="{% url 'task-account' %}"> Edit </a>
-                            </span>
-                            <hr>
-                           
-                           
-                        </div>
-                      
-                        <div class="list-group text-center">
-                            <span class="text list-group-span">
-                                <span class="sidebarUserWrapper"> Menu
-                                </span>
-
-                                <a href="{% url 'task-home' %}" class="list-group-item "> Main page </a>
-                                <a href="{% url 'my-gigs' %}" class="list-group-item">My gigs</a>
-                                <a href="{% url 'create-gig' %}" class="list-group-item">Create a gig</a>
-                                <a href="{% url 'profile' user.username %}" class="list-group-item">My profile</a>
-                            </span>
-                        </div>
-                        {% endblock %}
+    <div id="app" class="container">
+        <div class="wrapperHeader">
+            <div class="mainHeader ">
+                    <div class="header text-center">
+                        <span class="sidebarButtonWrapper" @click="toggle"><span class="sidebarButton"><i class="material-icons">${
+                                    message }$</i></span></span>
+    
+                      <div class="textHeader ">Qualia</div>
+                        
                     </div>
+                    <div id="btn-top" ><span><i  class="material-icons expand-less">expand_less</i></span></div>
+                
+            </div>
+        </div>
+            <div class=" sidebar "  :class="{'Hide': isOpen}">
+                    {% block sidebar %}
+                    <div class="sidebar-top"></div>
+                    <div class="text-center userProf">
+                        <img class="logo" src=" {% if user.profile %} {{MEDIA_URL}}{{request.user.profile.logo}} {% else %} {% static 'img/man-under-tree-512.png' %} {% endif %}"
+                            width="85" height="85">
+                            
+        <div style="margin-top:12px;">{{request.user.username}}</div>
+                           
+                        <hr>
+                        
+                        <span class="sidebarUserWrapper">
+                            <a href="{% url 'task-sign-out' %}"> Log out </a>|
+                            <a href="{% url 'task-account' %}"> Edit </a>
+                        </span>
+                        <hr>
+                       
+                       
+                    </div>
+                  
+                    <div class="list-group text-center">
+                        <span class="text list-group-span">
+                            <span class="sidebarUserWrapper"> Menu
+                            </span>
 
-                    <div class="col-lg-8 col-md-10 col-sm-10 content" :class="{'col-lg-12': isOpen}">
+                            <a href="{% url 'task-home' %}" class="list-group-item "> Main page </a>
+                            <a href="{% url 'my-gigs' %}" class="list-group-item">My gigs</a>
+                            <a href="{% url 'create-gig' %}" class="list-group-item">Create a gig</a>
+                            <a href="{% url 'profile' user.username %}" class="list-group-item">My profile</a>
+                        </span>
+                    </div>
+                    {% endblock %}
+                </div>
+        <div class="Main ">
+            
+          
+            <div class="container-fluid">
+                <div class="row">
+
+                 
+
+                    <div class="col-lg-12 col-md-10 col-sm-10 content">
                         {% block page %}{% endblock %}
 
                     </div>
@@ -81,14 +88,16 @@
                 </div>
 
             </div>
+            
         </div>
-
-        <div id="btn-top" class="top"><span><i style="font-size: 50px" class="material-icons">expand_less</i></span></div>
-        <div class="footer">
-            <img alt="" class="img-logo" src="{% static 'img/man-under-tree-512.png' %}">
-        </div>
+        
+       
+        
 
     </div>
+    <div class="footer">
+            <img alt="" class="img-logo" src="{% static 'img/man-under-tree-512.png' %}">
+        </div>
 
     <script>
         new Vue({
@@ -98,7 +107,7 @@
                 isOpen: true,
                 message: 'menu'
             },
-            methods: {
+          methods: {
                 toggle() {
                     this.isOpen = !this.isOpen
                     if ((this.isOpen) == true) {
@@ -113,7 +122,7 @@
         $(document).ready(function () {
             var $btnTop = $("#btn-top");
             $(window).on("scroll", function () {
-                if ($(window).scrollTop() >= 30) {
+                if ($(window).scrollTop() >= 300) {
                     $btnTop.fadeIn();
                 } else {
                     $btnTop.fadeOut();

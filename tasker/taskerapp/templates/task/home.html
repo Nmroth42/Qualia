@@ -6,16 +6,16 @@ Home
 {% endblock %}
 
 {% block page %}
-<div class="content-wrapper" :class="{'content-wrapper-open': !isOpen}">
-    <div class="row">
+<div class="content-wrapper" >
+    <div class="row" style="" >  
         {% for gig in gigs %}
-    
-        <div class="col-lg-4 wrapper-thumbnail  " onclick="myFunction('{{ gig.id }}')"  
+   <div class="wrapper-thumbnail col-lg-4" >
+        <div class="thumbnail  " onclick="myFunction('{{ gig.id }}')"  
         data-url="{% url 'gig-detail' gig.id %}" 
-         id="{{gig.id}}" :class="{'col-lg-6': !isOpen}" >
+         id="{{gig.id}}"  >
 
            
-            <img class="img-thumbnail"  href="{% url 'gig-detail' gig.id %}" src="/media/{{gig.photo}}" >
+            <!--<img class="img-thumbnail"  href="{% url 'gig-detail' gig.id %}" src="/media/{{gig.photo}}" > -->
             <hr>
             <div class="gig-title text-center">
                {{gig.title}} 
@@ -29,6 +29,7 @@ Home
             </div>
 
         </div>
+    </div>
 
         {% endfor%}
     </div>

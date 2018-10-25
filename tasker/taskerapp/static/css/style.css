@@ -5,9 +5,14 @@
     transform: translate(-50%);
   position: relative;
     left: 50%;
+    top:60px;
+    margin-bottom:80px;
 }
 
-
+.container {
+   
+    padding:0px !important
+}
 
 /*----------------Backgrounds--------------*/
 .body-content {
@@ -20,11 +25,13 @@
 
 .bg-white {
     background-color: #CDDCDC;
+    
+    
 }
 
 body {
 
-    background-color: #2AA3D5;
+    background-color:#F0F3F5;
     overflow: auto;
     font-family: 'Roboto', sans-serif;
     color: rgba(0, 0, 0, 0.87);
@@ -53,21 +60,21 @@ body {
 }
 #btn-top {
     
-   
+    
     display: block;
-    position: fixed;
+    position: absolute;
     background-color: white;
     width: 100%;
     height: 48px;
     text-align: center;
+   right: 0px;
+   top:0px;
    
-    left: 0px;
-    bottom: 0px;
     transition: background-color .3s;
     z-index: 1000;
-    width: 975px;
-    transform: translate(-50%);
-    left: 50%;
+    width: 60px;
+    height: 60px;
+  
 }
 
 #btn-top:hover {
@@ -90,7 +97,7 @@ body {
     background: rgb(255, 255, 255);
     transition: .15s ease-in-out;
     transition-property: background;    
-
+    background-color:#EEEEEE;
 }
 
 .sidebarButtonWrapper:hover {
@@ -106,13 +113,21 @@ body {
 }
 
 /*----------------Header--------------*/
+.wrapperHeader {
+    position: absolute;
+    width: 100%;
+    height: 60px;
+    left: 0px;
+    background: #FFFFFF;
+}
 .header {
-    background: rgb(255, 255, 255);
-    z-index: 1000;
+    background:white;
+    
     color: black;
     height: 60px;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.23);
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
     width: 975px;
+    
 }
 
 .textUser {
@@ -124,10 +139,18 @@ body {
 
 
 .mainHeader {
-    position: relative;
-    margin: 11px;
-    margin-top: 21px;
+    position: fixed;
+    
+    margin-top: 0px;
     border-radius: 4px;
+    height: 60px;
+    width: 975px;
+    z-index: 1001;
+    top:0px;
+    left:0px;
+    
+    transform: translate(-50%);
+    left: 50%;
 }
 
 .textHeader {
@@ -141,7 +164,7 @@ body {
 .content {
     min-height: 100vh;
     right: 0px;
-    background-color: #D9E5E5;
+    background-color:#D9E5E5;
 }
 
 .card {
@@ -150,25 +173,32 @@ body {
     padding-top: 0px !important;
     
 }
-
 .wrapper-thumbnail {
-    background-color: white;
-    border: 3px solid #DAE5E5;
+    padding:7px;
+   
+
+}
+.thumbnail {
+    background-color: #FCFCFC;
+    box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.137);
+   
+    padding:20px;
    cursor: pointer;
     padding-top: 14px;
-    max-height: 400px !important;
-    min-height: 300px;
+    max-height: 450px !important;
+    min-height: 120px;
     transition: .15s ease-in-out;
     transition-property: background;
 }
 
-.wrapper-thumbnail:hover {
+.thumbnail:hover {
     background-color: #F4F7F7;
-    border: 3px solid #DAE5E5;
+ 
    cursor: pointer;
     padding-top: 14px;
-    max-height: 400px !important;
-    min-height: 300px;
+    
+   
+    
     transition: .15s ease-in-out;
     transition-property: background;
 }
@@ -184,11 +214,13 @@ body {
 }
 
 .content-wrapper {
-    padding: 10px;
+    padding: 6px;
+  
     
 }
 .content-wrapper-open {
-    padding-left: 3px;
+    padding-left: 8px;
+  
 }
 .img-thumbnail {
     height: 180px !important;
@@ -214,25 +246,30 @@ body {
 .left-padding-sidebar {
     padding-left: 13px;
 }
-
+.sidebar-top{
+    height: 60px;
+    background: white;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.23);
+}
 .sidebar {
-    position: relative;
-    height: 100vh;
-    z-index: 100;
-    top: 13px;
+    position: fixed;
+    height: 100%;
+    z-index: 1000;
+    top: 0px;
     margin-bottom: 19px;
     left: 0px;
     padding: 0px;
+    width:280px;
     background-color: #FFFF;
     overflow: auto;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
-.sidebar>div:first-child {
+.sidebar>div:nth-child(2) {
     padding: 20px 10px;
     transition: 2s ease-in-out;
     font-size: 16px;
-    background-color: #FFFF;
+    background-color:#EEEEEE;
     /* box-shadow: -1px 0px 2px 0px rgba(0,0,0,0.55) inset; */
 }
 
@@ -284,9 +321,26 @@ body {
 
 /*------------------Media-----------------------*/
 @media only screen and (max-width: 900px) {
-    .sidebarButtonWrapper {}
-
+    .Main {
+        top:10px;
+        margin-bottom:10px;
+    }
+    .mainHeader {
+        position: fixed;
+        
+        margin-top: 0px;
+        border-radius: 4px;
+        height: 60px;
+        width: 100%;
+        z-index: 1001;
+        top:0px;
+        left:0px;
+        
+        transform: translate(-50%);
+        left: 50%;
+    }
     .sidebar {
+        width: 100%;
         box-shadow: 0 3px 6px rgba(0, 0, 0, 0.294);
         border-top-right-radius: 0px;
         border-bottom-right-radius: 0px;
@@ -313,8 +367,16 @@ body {
         margin-top: 0px !important;
         padding: 0px 15px;
     }
-    
+   
+    .footer {
+        position: absolute;
+        width: 100% !important;
+        display: inline-block;
+    }
 
+}
+.expand-less {
+    font-size: 60px !important; color:rgba(15, 19, 26, 0.85);
 }
 
 
@@ -336,6 +398,7 @@ body {
     position: relative;
     display: inline-block;
     height: 148px;
-    width: 100%;
-    bottom:-6px;
+    width:100%;
+    bottom:-7px;
+    left: 0px;
 }
