@@ -14,6 +14,7 @@
     padding:0px !important
 }
 
+
 /*----------------Backgrounds--------------*/
 .body-content {
     background-color: #D9E5E5;
@@ -63,7 +64,7 @@ body {
     
     display: block;
     position: absolute;
-    background-color: white;
+    background: rgba(255, 255, 255, 0.0);
     width: 100%;
     height: 48px;
     text-align: center;
@@ -93,11 +94,12 @@ body {
     width: 60px;
     top: 0px;
     padding-right: 10px;
-    height: 60px;
-    background: rgb(255, 255, 255);
+    height: 59px;
+   
     transition: .15s ease-in-out;
     transition-property: background;    
-    background-color:#EEEEEE;
+    background: rgba(255, 255, 255, 0.0);
+    
 }
 
 .sidebarButtonWrapper:hover {
@@ -119,14 +121,24 @@ body {
     height: 60px;
     left: 0px;
     background: #FFFFFF;
+    
+    border-bottom:1px solid #F3F3F3; 
 }
 .header {
-    background:white;
-    
+   
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
     color: black;
     height: 60px;
-    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
+    border-bottom:1px solid #F3F3F3; 
     width: 975px;
+    background: rgba(255, 255, 255, 0.65);
+    transition: .15s ease-in-out;
+    transition-property: background;
+    
+}
+.header:hover {
+   
+    background: rgba(255, 255, 255, 1);
     
 }
 
@@ -174,18 +186,18 @@ body {
     
 }
 .wrapper-thumbnail {
-    padding:7px;
-   
+    padding:8px;
+  
 
 }
 .thumbnail {
     background-color: #FCFCFC;
     box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.137);
-   
+   position: relative;
     padding:20px;
    cursor: pointer;
     padding-top: 14px;
-    max-height: 450px !important;
+    max-height: 220px !important;
     min-height: 120px;
     transition: .15s ease-in-out;
     transition-property: background;
@@ -214,14 +226,12 @@ body {
 }
 
 .content-wrapper {
-    padding: 6px;
+    padding: 10px;
+  
   
     
 }
-.content-wrapper-open {
-    padding-left: 8px;
-  
-}
+
 .img-thumbnail {
     height: 180px !important;
     border: none;
@@ -248,19 +258,29 @@ body {
 }
 .sidebar-top{
     height: 60px;
+    width: 300px;
+    position: fixed;
+    z-index: 999;
+    
+    top:0px;
+    left:0px;
     background: white;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.23);
+    border-bottom:1px solid #F3F3F3; 
+   
 }
 .sidebar {
     position: fixed;
+    
     height: 100%;
-    z-index: 1000;
-    top: 0px;
+    z-index: 1001;
+    top: 60px;
     margin-bottom: 19px;
     left: 0px;
-    padding: 0px;
-    width:280px;
-    background-color: #FFFF;
+    
+    padding:20px;
+    padding-top: 25px;
+    width:300px;
+    background-color:white;
     overflow: auto;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.23);
 }
@@ -269,7 +289,9 @@ body {
     padding: 20px 10px;
     transition: 2s ease-in-out;
     font-size: 16px;
-    background-color:#EEEEEE;
+    position: relative;
+   z-index:2006;
+    background-color:white;
     /* box-shadow: -1px 0px 2px 0px rgba(0,0,0,0.55) inset; */
 }
 
@@ -287,6 +309,7 @@ body {
 
 .list-group-span {
     padding-top: 0px;
+    
     background-color:  #F7F7F7;
 }
 
@@ -296,6 +319,7 @@ body {
 
 .sidebar .list-group>span {
     margin-top: 5px;
+    
     box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.603);
 }
 
@@ -310,7 +334,8 @@ body {
 
 .sidebar .list-group {
     margin-top: 0px !important;
-    padding: 0px 35px;
+    margin-bottom: 60px;
+    padding-top:0px !important;
 }
 
 .sidebar .list-group .list-group-item:hover {
@@ -378,7 +403,13 @@ body {
       margin-top:53px;
         
     }
-
+    .header {
+   
+        
+        background: rgba(255, 255, 255, 1);
+   
+        
+    }
 }
 .expand-less {
     font-size: 60px !important; color:rgba(15, 19, 26, 0.85);

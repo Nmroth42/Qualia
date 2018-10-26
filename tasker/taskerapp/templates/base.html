@@ -20,7 +20,12 @@
 
 <style>
     .Hide {
-        display: none;
+       left:-300px;
+    }
+    @media only screen and (max-width: 900px) {
+        .Hide {
+       left:-100%;
+    }
     }
 </style>
 
@@ -33,15 +38,17 @@
                                     message }$</i></span></span>
     
                       <div class="textHeader ">Qualia</div>
+                      <div id="btn-top" ><span><i  class="material-icons expand-less">expand_less</i></span></div>
                         
                     </div>
-                    <div id="btn-top" ><span><i  class="material-icons expand-less">expand_less</i></span></div>
+                   
                 
             </div>
         </div>
+        <div class="sidebar-top" :class="{'Hide': isOpen}"></div>
             <div class=" sidebar "  :class="{'Hide': isOpen}">
                     {% block sidebar %}
-                    <div class="sidebar-top"></div>
+                    
                     <div class="text-center userProf">
                         <img class="logo" src=" {% if user.profile %} {{MEDIA_URL}}{{request.user.profile.logo}} {% else %} {% static 'img/man-under-tree-512.png' %} {% endif %}"
                             width="85" height="85">
@@ -68,6 +75,9 @@
                             <a href="{% url 'my-gigs' %}" class="list-group-item">My gigs</a>
                             <a href="{% url 'create-gig' %}" class="list-group-item">Create a gig</a>
                             <a href="{% url 'profile' user.username %}" class="list-group-item">My profile</a>
+
+                          
+                        </span>
                         </span>
                     </div>
                     {% endblock %}
