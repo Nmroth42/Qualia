@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
+from ckeditor.fields import RichTextField
 
 class Profile(models.Model): 
     user = models.OneToOneField(User, on_delete=models.CASCADE, )
@@ -20,7 +21,7 @@ class Gig(models.Model):
     )
     title = models.CharField(max_length=500)
     category = models.CharField(max_length=2, choices=CATEGORY_CHOICES)
-    description = models.CharField(max_length=2000)
+    description = RichTextField(blank=True, null=True)
     price = models.IntegerField(default=0)
     photo = models.FileField(upload_to='gigs')
     status = models.BooleanField(default=True)

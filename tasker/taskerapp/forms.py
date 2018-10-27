@@ -1,8 +1,10 @@
 from django import forms
+from ckeditor.widgets import CKEditorWidget
 
 from django.contrib.auth.models import User
 from taskerapp.models import Profile
 from taskerapp.models import Gig
+
 
 class UserForm(forms.ModelForm):
     email = forms.CharField(max_length=100, required=True)
@@ -24,7 +26,7 @@ class ProfileForm(forms.ModelForm):
         fields = ("status","logo", )
 
 class GigForm(forms.ModelForm):
-    description = forms.CharField( widget=forms.Textarea)
+    description = forms.CharField(label='Description', widget=forms.Textarea(attrs={'class': 'ckeditor'}))
     class Meta:
         model = Gig
         fields = ["title", "category", "description", "price", "photo", "status"]
