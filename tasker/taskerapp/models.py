@@ -6,7 +6,7 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, )
     status = models.CharField(max_length=500)
     logo = models.ImageField(upload_to='task_logo/', blank=False)
-
+    
    # def __str__(self):
     #    return self.name
 

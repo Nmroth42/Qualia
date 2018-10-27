@@ -4,14 +4,29 @@ from taskerapp.forms import UserForm, ProfileForm, UserFormForEdit, GigForm
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 from .models import Gig, Profile
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+
 # Create your views here.
 def home(request):
     return redirect(task_home)
 
 @login_required(login_url='/task/sign-in/' )
 def task_home(request):
-    gigs = Gig.objects.filter(status=True)
-    return render(request, 'task/home.html', {"gigs": gigs})
+    gigs = Gig.objects.all().order_by("-create_time")
+    paginator = Paginator(gigs, 9) # Show 25 contacts per page
+    page = request.GET.get('page')
+    try:
+        queryset = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        queryset = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        queryset = paginator.page(paginator.num_pages)
+    
+    return render(request, 'task/home.html', {"gigs": queryset})
+
+
 
 @login_required(login_url='/task/sign-in/' )
 def task_account(request):

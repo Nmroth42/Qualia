@@ -15,17 +15,19 @@
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
     <link rel="shortcut icon" href="{% static 'img/check-mark-10-32.ico' %}">
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
 </head>
 
 <style>
     .Hide {
-       left:-300px;
+        left: -300px;
     }
+
     @media only screen and (max-width: 900px) {
         .Hide {
-       left:-100%;
-    }
+            left: -100%;
+        }
     }
 </style>
 
@@ -33,129 +35,73 @@
     <div id="app" class="container">
         <div class="wrapperHeader">
             <div class="mainHeader ">
-                    <div class="header text-center">
-                        <span class="sidebarButtonWrapper" @click="toggle"><span class="sidebarButton"><i class="material-icons">${
-                                    message }$</i></span></span>
-    
-                      <div class="textHeader ">Qualia</div>
-                      <div id="btn-top" ><span><i  class="material-icons expand-less">expand_less</i></span></div>
-                        
-                    </div>
-                   
-                
+                <div class="header text-center">
+                    <span class="sidebarButtonWrapper" @click="toggle"><span class="sidebarButton"><i class="material-icons">${
+                                message }$</i></span></span>
+
+                    <div class="textHeader ">Qualia</div>
+                    <div id="btn-top"><span><i class="material-icons expand-less">expand_less</i></span></div>
+
+                </div>
+
+
             </div>
         </div>
         <div class="sidebar-top" :class="{'Hide': isOpen}"></div>
-            <div class=" sidebar "  :class="{'Hide': isOpen}">
-                    {% block sidebar %}
-                    
-                    <div class="text-center userProf">
-                        <img class="logo" src=" {% if user.profile %} {{MEDIA_URL}}{{request.user.profile.logo}} {% else %} {% static 'img/man-under-tree-512.png' %} {% endif %}"
-                            width="85" height="85">
-                            
-        <div style="margin-top:12px;">{{request.user.username}}</div>
-                           
-                        <hr>
-                        
-                        <span class="sidebarUserWrapper">
-                            <a href="{% url 'task-sign-out' %}"> Log out </a>|
-                            <a href="{% url 'task-account' %}"> Edit </a>
-                        </span>
-                        <hr>
-                       
-                       
-                    </div>
-                  
-                    <div class="list-group text-center">
-                        <span class="text list-group-span">
-                            <span class="sidebarUserWrapper"> Menu
-                            </span>
+        <div class=" sidebar " :class="{'Hide': isOpen}">
+            {% block sidebar %}
 
-                            <a href="{% url 'task-home' %}" class="list-group-item "> Main page </a>
-                            <a href="{% url 'my-gigs' %}" class="list-group-item">My gigs</a>
-                            <a href="{% url 'create-gig' %}" class="list-group-item">Create a gig</a>
-                            <a href="{% url 'profile' user.username %}" class="list-group-item">My profile</a>
+            <div class="text-center userProf">
+                <img class="logo" src=" {% if user.profile %} {{MEDIA_URL}}{{request.user.profile.logo}} {% else %} {% static 'img/man-under-tree-512.png' %} {% endif %}"
+                    width="85" height="85">
 
-                          
-                        </span>
-                        </span>
-                    </div>
-                    {% endblock %}
-                </div>
-        <div class="Main ">
-            
-          
-            <div class="container-fluid">
-                <div class="row">
+                <div style="margin-top:12px;">{{request.user.username}}</div>
 
-                 
+                <hr>
 
-                    <div class="col-lg-12 col-md-10 col-sm-10 content">
-                        {% block page %}{% endblock %}
+                <span class="sidebarUserWrapper">
+                    <a href="{% url 'task-sign-out' %}"> Log out </a>|
+                    <a href="{% url 'task-account' %}"> Edit </a>|
+                    <a href="{% url 'profile' user.username %}" >My profile</a>
+                </span>
+                <hr>
 
-                    </div>
-
-                </div>
 
             </div>
-            
+
+            <div class="list-group text-center">
+                <span class="text list-group-span">
+                    <span class="sidebarUserWrapper"> Menu </span>
+                   
+
+                    <a href="{% url 'task-home' %}" class="list-group-item "> Main page </a>
+                    <a href="{% url 'my-gigs' %}" class="list-group-item">My gigs</a>
+                    <a href="{% url 'create-gig' %}" class="list-group-item">Create a gig</a>
+                   
+
+                </span>
+                </span>
+            </div>
+            {% endblock %}
         </div>
-        
-       
-        
+        <div class="Main ">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12 col-md-10 col-sm-10 content">
+                        {% block page %}{% endblock %}
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </div>
+
     <div class="footer">
-            <img alt="" class="img-logo" src="{% static 'img/man-under-tree-512.png' %}">
-        </div>
-
-    <script>
-        new Vue({
-            delimiters: ['${', '}$'],
-            el: '#app',
-            data: {
-                isOpen: true,
-                message: 'menu'
-            },
-          methods: {
-                toggle() {
-                    this.isOpen = !this.isOpen
-                    if ((this.isOpen) == true) {
-                        this.message = 'menu'
-                    }
-                    if ((this.isOpen) == false) {
-                        this.message = 'close'
-                    }
-                }
-            }
-        })
-        $(document).ready(function () {
-            var $btnTop = $("#btn-top");
-            $(window).on("scroll", function () {
-                if ($(window).scrollTop() >= 300) {
-                    $btnTop.fadeIn();
-                } else {
-                    $btnTop.fadeOut();
-                }
-            });
-            $btnTop.on("click", function () {
-                $("html,body").animate({
-                    scrollTop: 0
-                }, 450);
-            });
-        });
-       
-     
-
-         function myFunction(arg) {
-            var id = '#' + arg
-            var url = $(id).attr("data-url");
-            document.location.href = url;
-        }
-      
-
-    </script>
+        <img alt="" class="img-logo" src="{% static 'img/man-under-tree-512.png' %}">
     </div>
+
+    <script src="{% static 'js/main.js' %}"> </script>
+
 </body>
 
 </html>

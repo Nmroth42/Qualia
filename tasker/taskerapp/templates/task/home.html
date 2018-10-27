@@ -6,7 +6,7 @@ Home
 {% endblock %}
 
 {% block page %}
-<div class="content-wrapper" >
+<div class="content-wrapper " >
     <div class="row" style="" >  
         {% for gig in gigs %}
    <div class="wrapper-thumbnail col-lg-4" >
@@ -14,24 +14,55 @@ Home
         data-url="{% url 'gig-detail' gig.id %}" 
          id="{{gig.id}}"  >
 
-           
+        
             <!--<img class="img-thumbnail"  href="{% url 'gig-detail' gig.id %}" src="/media/{{gig.photo}}" > -->
             <hr>
             <div class="gig-title text-center">
-               {{gig.title}} 
+               {{gig.title|truncatechars:50}} 
 
             </div>
             <hr>
             <br>
             <br>
             <div class="gig-bottom">
-                <p><span> {{gig.user.username}}</span></p>
+                <div></div>
+                <img src="/media/{{gig.user.profile.logo}}" style="clip-path: circle(50.1% at 50% 50%); object-fit: cover;
+                top:9px; position: relative; margin-right:6px;"
+                    width="40px" height="40px">
+                    <span> {{gig.user.username}}<br></span>  
+                    <small class="gig-time">{{gig.create_time|timesince}} ago</small>
+            
             </div>
-
+            
+           
         </div>
     </div>
 
         {% endfor%}
+   
+
+    </div>
+    <br>
+    <div style="width: 100%">
+    <div class="pagination "style="  transform: translate(-50%);
+    position: absolute;
+    left: 50%;">
+            <span class="step-links">
+                {% if gigs.has_previous %}
+                    <a href="?page={{ gigs.previous_page_number }}">previous</a>
+                {% endif %}
+        
+                <span class="current">
+                    Page {{ gigs.number }} of {{ gigs.paginator.num_pages }}.
+                </span>
+        
+                {% if gigs.has_next %}
+                    <a href="?page={{ gigs.next_page_number }}">next</a>
+                {% endif %}
+            </span>
+           
+        </div>
+        <br>
     </div>
 </div>
 

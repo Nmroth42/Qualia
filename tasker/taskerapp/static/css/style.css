@@ -250,7 +250,11 @@ body {
     overflow: hidden;
     max-height: 23%;
 }
-
+.gig-time {
+    position: relative;
+    top:-15px;
+    left:49px;
+}
 /*---------------Sidebar----------------*/
 
 .left-padding-sidebar {
@@ -319,8 +323,9 @@ body {
 
 .sidebar .list-group>span {
     margin-top: 5px;
+    border:1px solid#E2E2E2;
+    border-radius: 4px;
     
-    box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.603);
 }
 
 .sidebar .list-group .list-group-item {
@@ -336,6 +341,7 @@ body {
     margin-top: 0px !important;
     margin-bottom: 60px;
     padding-top:0px !important;
+   
 }
 
 .sidebar .list-group .list-group-item:hover {

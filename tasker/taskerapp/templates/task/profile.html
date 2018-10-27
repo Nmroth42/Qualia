@@ -2,11 +2,21 @@
 {% load staticfiles %}
 
 {% block page %}
+
 <div class="card">
-
     <div class="jumbotron text-center">
-                {{profile.user.username}}
-
+            <img class="logo" src=" {% if user.profile %} {{MEDIA_URL}}{{request.user.profile.logo}} {% else %} {% static 'img/man-under-tree-512.png' %} {% endif %}"
+            width="85" height="85">
+               <h3>{{profile.user.username}} </h3> 
+                <p>
+                    
+                    {{profile.status}}
+                </p>
+                
     </div>
+  
+          
+        
 </div>
+
 {% endblock %}

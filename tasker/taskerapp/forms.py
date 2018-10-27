@@ -21,7 +21,7 @@ class UserFormForEdit(forms.ModelForm):
 class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ("logo",)
+        fields = ("status","logo", )
 
 class GigForm(forms.ModelForm):
     description = forms.CharField( widget=forms.Textarea)
