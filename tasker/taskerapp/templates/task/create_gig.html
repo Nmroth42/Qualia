@@ -1,9 +1,7 @@
 {% extends 'base.html' %}
 {% load bootstrap3 %}
 {% load staticfiles %}
-{% block head_extra %}
-{{form.media}}
-{% endblock head_extra %}
+
 {% block page %}
 {{ error }}
 <div class="card">
@@ -14,7 +12,7 @@
         <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
            {{form.media}}
-           {{form.as_p}}
+           
             {% bootstrap_form gig_form %}
            
             <br>

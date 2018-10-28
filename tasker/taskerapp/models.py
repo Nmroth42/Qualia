@@ -13,19 +13,17 @@ class Profile(models.Model):
 
 class Gig(models.Model): 
     CATEGORY_CHOICES = (
-        ("GD", "Graphics and Design"),
-        ("DM", "Digital and Marketing"),
-        ("VA", "Video and Animation"),
-        ("MA", "Music and Audio"),
-        ("PT", "Programming and Tech")
+        ("1", "ЕГЭ:Английский язык"),
+        ("2", "IELTS"),
+        ("3", "TOEFL"),
     )
-    title = models.CharField(max_length=500)
+    
     category = models.CharField(max_length=2, choices=CATEGORY_CHOICES)
-    description = RichTextField(blank=True, null=True)
-    price = models.IntegerField(default=0)
-    photo = models.FileField(upload_to='gigs')
+    answers = RichTextField(blank=True, null=True)
+    tasks = RichTextField(blank=True, null=True)
     status = models.BooleanField(default=True)
     user = models.ForeignKey(User)
+    songfile = models.FileField(upload_to='songs', blank=True)
     create_time = models.DateTimeField(default=timezone.now)
 
     def __str__(self):

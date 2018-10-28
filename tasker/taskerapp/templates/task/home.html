@@ -18,7 +18,8 @@ Home
             <!--<img class="img-thumbnail"  href="{% url 'gig-detail' gig.id %}" src="/media/{{gig.photo}}" > -->
             <hr>
             <div class="gig-title text-center">
-               {{gig.title|truncatechars:50}} 
+            
+               {{ gig.get_category_display}}
 
             </div>
             <hr>

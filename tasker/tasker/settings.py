@@ -40,8 +40,17 @@ INSTALLED_APPS = [
     'taskerapp',
     'ckeditor',
     'bootstrap3',
+    'ckeditor_uploader'
    
 ]
+
+CKEDITOR_UPLOAD_PATH = "uploads/"
+
+#CKEDITOR_CONFIGS = {
+#    'default': {
+#        'toolbar': None,
+#    },
+#}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

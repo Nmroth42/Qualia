@@ -2,12 +2,13 @@ from django.conf.urls import url
 from django.contrib import admin
 from taskerapp import views
 from django.contrib.auth import views as auth_views
-
+from django.conf.urls import include
 from django.conf.urls.static import static
 from django.conf import settings
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^ckeditor/', include('ckeditor_uploader.urls')),
     url(r'^$', views.home, name='home'),
     url(r'^task/sign-in/$', auth_views.login, {
         'template_name': 'task/sign_in.html'},

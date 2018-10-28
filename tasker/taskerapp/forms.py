@@ -26,7 +26,9 @@ class ProfileForm(forms.ModelForm):
         fields = ("status","logo", )
 
 class GigForm(forms.ModelForm):
-    description = forms.CharField(label='Description', widget=forms.Textarea(attrs={'class': 'ckeditor'}))
+    tasks = forms.CharField(label='Tasks', widget=forms.Textarea(attrs={'class': 'ckeditor'} ))
+    answers = forms.CharField(label='Answers', widget=forms.Textarea(attrs={'class': 'ckeditor'}))
+    songfile = forms.FileField(label='Speaking')
     class Meta:
         model = Gig
-        fields = ["title", "category", "description", "price", "photo", "status"]
+        fields = ["category", "tasks", "answers", "songfile", "status"]
