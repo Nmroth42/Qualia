@@ -34,20 +34,42 @@
 
 <body class="body-content">
     <div id="app" class="container">
-        <div class="wrapperHeader">
-            <div class="mainHeader ">
-                <div class="header text-center">
-                    <span class="sidebarButtonWrapper" @click="toggle"><span class="sidebarButton"><i class="material-icons">${
-                                message }$</i></span></span>
 
-                    <div class="textHeader ">Qualia</div>
-                    <div id="btn-top"><span><i class="material-icons expand-less">expand_less</i></span></div>
+        <div class="mainHeader ">
+            <div class="header">
+                <span class="sidebarButtonWrapper" @click="toggleHeaderUser"><span class="sidebarButton"><i class="material-icons">
+                            ${message }$</i></span></span>
 
+                <div class="textHeader ">Qualia</div>
+                <div id="btn-top"><span><i class="material-icons expand-less">expand_less</i></span></div>
+
+                <div class="headerMainWrapper">
+                    <div> <a href="{% url 'task-home' %}"> Main page </a> <a href="{% url 'my-gigs' %}">Search</a>
+                        <a href="{% url 'create-gig' %}">Create a gig</a></div>
                 </div>
+                <div class="headerUserWrapper" @click="toggleHeaderUser">
+                    <div class="headerUser">
+                        <img class="logo" width="35" height="35" src=" {% if user.profile %} {{MEDIA_URL}}{{request.user.profile.logo}} {% else %} {% static 'img/man-under-tree-512.png' %} {% endif %}">
+                        <span style="margin-top:12px;">{{request.user.username}}</span>
 
+                        <div class="headerMenuWrapper">
+                                <div class="UserWrapper ">
+                                 
+                                    <a href="{% url 'task-sign-out' %}"> Log out </a><br>
+                                    <a href="{% url 'task-account' %}"> Edit </a><br>
+                                    <a href="{% url 'profile' user.username %}">My profile</a>
+                                   
+                                </div>
+                            </div>
+                    </div>
+                </div>
+               
 
             </div>
+
+
         </div>
+
         <div class="sidebar-top" :class="{'Hide': isOpen}"></div>
         <div class=" sidebar " :class="{'Hide': isOpen}">
             {% block sidebar %}
@@ -63,7 +85,7 @@
                 <span class="sidebarUserWrapper">
                     <a href="{% url 'task-sign-out' %}"> Log out </a>|
                     <a href="{% url 'task-account' %}"> Edit </a>|
-                    <a href="{% url 'profile' user.username %}" >My profile</a>
+                    <a href="{% url 'profile' user.username %}">My profile</a>
                 </span>
                 <hr>
 
@@ -73,12 +95,12 @@
             <div class="list-group text-center">
                 <span class="text list-group-span">
                     <span class="sidebarUserWrapper"> Menu </span>
-                   
+
 
                     <a href="{% url 'task-home' %}" class="list-group-item "> Main page </a>
                     <a href="{% url 'my-gigs' %}" class="list-group-item">My gigs</a>
                     <a href="{% url 'create-gig' %}" class="list-group-item">Create a gig</a>
-                   
+
 
                 </span>
                 </span>
@@ -102,7 +124,7 @@
     </div>
 
     <script src="{% static 'js/main.js' %}"> </script>
-   
+
 
 </body>
 

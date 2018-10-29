@@ -6,7 +6,7 @@ new Vue({
         message: 'menu'
     },
   methods: {
-        toggle() {
+    toggleHeaderUser() {
             this.isOpen = !this.isOpen
             if ((this.isOpen) == true) {
                 this.message = 'menu'
@@ -15,6 +15,7 @@ new Vue({
                 this.message = 'close'
             }
         }
+     
     }
 })
 $(document).ready(function () {

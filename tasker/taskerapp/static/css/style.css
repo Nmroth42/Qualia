@@ -119,6 +119,20 @@ body {
 }
 
 /*----------------Header--------------*/
+.headerMenuWrapper {
+    height: 100px;
+    position: absolute;
+    width: 150px;
+    top:44px;
+    padding-left:25px;
+   
+    padding-right:25px;
+    right:-9px;
+    display:none;
+    z-index: 2000;
+    background:white;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
+}
 .wrapperHeader {
     position: absolute;
     width: 100%;
@@ -128,14 +142,47 @@ body {
     
     border-bottom:1px solid #F3F3F3; 
 }
+.UserWrapper > a {
+    display:inline-block;
+    width: 100%;
+    padding:2px ;
+   
+}
+.UserWrapper > a:first-child {
+   
+    padding-top:7px ;
+   
+}
+.headerUserWrapper {
+    position: absolute;
+    right:60px;
+    top:0px;
+    padding-left:5px;
+    padding-right:10px;
+    height: 60px;
+    width: auto;
+}
+.headerUserWrapper:hover {
+    background-color: #F4F7F7;
+    cursor: pointer;
+}
+.headerUserWrapper:hover .headerMenuWrapper {
+   
+    cursor: pointer;
+    display:block;
+}
+.headerUser{
+    position: relative;
+    top:16px;
+}
 .header {
    
     box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
     color: black;
     height: 60px;
     border-bottom:1px solid #F3F3F3; 
-    width: 975px;
-    background: rgba(255, 255, 255, 0.65);
+    
+    background: rgb(255, 255, 255);
     transition: .15s ease-in-out;
     transition-property: background;
     
@@ -145,7 +192,16 @@ body {
     background: rgba(255, 255, 255, 1);
     
 }
-
+.headerMainWrapper {
+    position: absolute;
+    width: 100%;
+    height: 40%;
+    left:200px;
+    top:18px;
+}
+.headerMainWrapper > div > a {
+    padding:5px;
+}
 .textUser {
     position: absolute;
     top: 15px;
@@ -160,7 +216,7 @@ body {
     margin-top: 0px;
     border-radius: 4px;
     height: 60px;
-    width: 975px;
+    width: 100%;
     z-index: 1001;
     top:0px;
     left:0px;
@@ -355,7 +411,25 @@ body {
 }
 
 /*------------------Media-----------------------*/
+@media only screen and (min-width: 900px) {
+    .sidebarButtonWrapper {
+        display:none;
+    }
+    #btn-top {
+        display:none;
+    }
+
+}
 @media only screen and (max-width: 900px) {
+    .headerMainWrapper {
+        display:none;
+    }
+    .headerUserWrapper {
+        display:none;
+    }
+    .headerMenuWrapper {
+        display:none;
+    }
     .Main {
         top:10px;
         margin-bottom:10px;
@@ -413,12 +487,8 @@ body {
       margin-top:53px;
         
     }
-    .header {
-   
-        
+    .header {        
         background: rgba(255, 255, 255, 1);
-   
-        
     }
 }
 .expand-less {
