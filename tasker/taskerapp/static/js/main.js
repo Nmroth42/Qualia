@@ -20,6 +20,7 @@ new Vue({
 })
 $(document).ready(function () {
     var $btnTop = $("#btn-top");
+    $btnTop.fadeOut(0);
     $(window).on("scroll", function () {
         if ($(window).scrollTop() >= 600) {
             $btnTop.fadeIn();

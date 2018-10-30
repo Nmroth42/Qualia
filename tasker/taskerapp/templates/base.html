@@ -44,10 +44,11 @@
                 <div id="btn-top"><span><i class="material-icons expand-less">expand_less</i></span></div>
 
                 <div class="headerMainWrapper">
-                    <div> <a href="{% url 'task-home' %}"> Main page </a> <a href="{% url 'my-gigs' %}">Search</a>
-                        <a href="{% url 'create-gig' %}">Create a gig</a></div>
+                    <div> <a href="{% url 'task-home' %}"> Main page </a> <a href="{% url 'search' %}">Search</a>
+                        <a href="{% url 'create-gig' %}">Create a gig</a>
+                        <a href="{% url 'my-gigs' %}" >My gigs</a></div>
                 </div>
-                <div class="headerUserWrapper" @click="toggleHeaderUser">
+                <div class="headerUserWrapper" >
                     <div class="headerUser">
                         <img class="logo" width="35" height="35" src=" {% if user.profile %} {{MEDIA_URL}}{{request.user.profile.logo}} {% else %} {% static 'img/man-under-tree-512.png' %} {% endif %}">
                         <span style="margin-top:12px;">{{request.user.username}}</span>

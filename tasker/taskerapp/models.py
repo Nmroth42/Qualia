@@ -13,12 +13,12 @@ class Profile(models.Model):
 
 class Gig(models.Model): 
     CATEGORY_CHOICES = (
-        ("1", "ЕГЭ:Английский язык"),
-        ("2", "IELTS"),
-        ("3", "TOEFL"),
+        ("ЕГЭ егэ английский Английский Язык язык", "ЕГЭ:Английский язык"),
+        ("IELTS ielts шудеы", "IELTS"),
+        ("TOEFL toefl ещуад", "TOEFL"),
     )
     
-    category = models.CharField(max_length=2, choices=CATEGORY_CHOICES)
+    category = models.CharField(max_length=50, choices=CATEGORY_CHOICES)
     answers = RichTextField(blank=True, null=True)
     tasks = RichTextField(blank=True, null=True)
     status = models.BooleanField(default=True)

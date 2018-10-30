@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block page %}
+
+
+    
+
+    <form class="" action="" method='GET'>
+            <div class="card-body row ">
+                
+                <!--end of col-->
+                <div class="col"style="padding:0px; padding-right:5px;">
+                    <input class="form-control form-control-lg "  type="text" name='q' placeholder="search here" value='{{ request.GET.get.q }}'>
+                </div>
+                <!--end of col-->
+                <div class="col-auto" style="padding:0px;">
+                   
+                    <input class="btn btn-lg btn-success"  type="submit" value="Search"/>
+                </div>
+                <!--end of col-->
+            </div>
+        </form>
+
+
+
+    
+
+<div class="content-wrapper " >
+        <div class="row" style="" >  
+            {% for gig in gigs %}
+       <div class="wrapper-thumbnail col-lg-4" >
+            <div class="thumbnail  " onclick="myFunction('{{ gig.id }}')"  
+            data-url="{% url 'gig-detail' gig.id %}" 
+             id="{{gig.id}}"  >
+    
+            
+                <!--<img class="img-thumbnail"  href="{% url 'gig-detail' gig.id %}" src="/media/{{gig.photo}}" > -->
+                <hr>
+                <div class="gig-title text-center">
+                
+                   {{ gig.get_category_display}}
+    
+                </div>
+                <hr>
+                <br>
+                <br>
+                <div class="gig-bottom">
+                    <div></div>
+                    <img src="/media/{{gig.user.profile.logo}}" style="clip-path: circle(50.1% at 50% 50%); object-fit: cover;
+                    top:9px; position: relative; margin-right:6px;"
+                        width="40px" height="40px">
+                        <span> {{gig.user.username}}<br></span>  
+                        <small class="gig-time">{{gig.create_time|timesince}} ago</small>
+                
+                </div>
+                
+               
+            </div>
+        </div>
+    
+            {% endfor%}
+       
+    
+        </div>
+        <br>
+        <div style="width: 100%">
+        <div class="pagination "style="  transform: translate(-50%);
+        position: absolute;
+        left: 50%;">
+                <span class="step-links">
+                    {% if gigs.has_previous %}
+                        <a href="?page={{ gigs.previous_page_number }}&q={{request.GET.q}}">previous</a>
+                    {% endif %}
+            
+                    <span class="current">
+                        Page {{ gigs.number }} of {{ gigs.paginator.num_pages }}.
+                    </span>
+            
+                    {% if gigs.has_next %}
+                        <a href="?page={{ gigs.next_page_number }}&q={{request.GET.q}}">next</a>
+                    {% endif %}
+                </span>
+               
+            </div>
+            <br>
+        </div>
+    </div>
+{% endblock %}

@@ -29,6 +29,8 @@ urlpatterns = [
         name='create-gig'),
         url(r'^task/profile/(?P<username>\w+)/$', views.profile, 
         name='profile'),
+     url(r'^task/search/$', views.search, 
+        name='search'),    
         
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

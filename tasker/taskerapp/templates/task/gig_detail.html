@@ -12,13 +12,17 @@
 <div class="row">
     <div class="col-md-8" >
         <div class="card">
+                <h5 class="text-center card-header">  {{ gig.get_category_display}}
+                    </h5>
+            </div>
+        <div class="card">
                 <h5 class="text-center card-header"> Tasks </h5>
             <div class="card-body">
                     {{gig.tasks|safe}}
                <!-- <img src="/media/{{gig.photo}}" style="display: block;margin: auto;" alt="" class="img-fluid ">-->
             </div>
         </div>
-
+        
         <div class="card">
                 <h5 class="text-center card-header"> Answers </h5>
             <div class="card-body">
@@ -29,7 +33,7 @@
                 Speaking
             </h5>  
                 <hr>
-                <audio class="horizontal-alignment" controls>
+                <audio style="background: rgb(255, 255, 255); width: 100%;" class="horizontal-alignment" controls>
                     <source src="/media/{{gig.songfile}}" type="audio/mpeg">
                    
                 </audio>

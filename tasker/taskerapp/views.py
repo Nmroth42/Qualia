@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from taskerapp.forms import UserForm, ProfileForm, UserFormForEdit, GigForm
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
+from django.db.models import Q
 from .models import Gig, Profile
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
@@ -99,5 +100,37 @@ def profile(request, username):
     except Profile.DoesNotExist:
         return redirect('/')
     return render(request, 'task/profile.html', {"profile":profile})
+
+@login_required(login_url='/task/sign-in/' )
+def search(request): 
+  
+    gigs = Gig.objects.all().order_by("-create_time")
+   
+    
+    
+    query = request.GET.get("q")
+    if query:
+        gigs = gigs.filter(
+            Q(category__icontains=query) |
+              Q(tasks__icontains=query)
+            )
+        paginator = Paginator(gigs, 9) # Show 25 contacts per page
+        page = request.GET.get('page')
+        try:
+            queryset = paginator.page(page)
+        except PageNotAnInteger:
+            # If page is not an integer, deliver first page.
+            queryset = paginator.page(1)
+        except EmptyPage:
+            # If page is out of range (e.g. 9999), deliver last page of results.
+            queryset = paginator.page(paginator.num_pages)
+    else:
+        queryset = None
+    
+            
+   
+
+    
+    return render(request, 'task/search.html', {"gigs": queryset})
 
 

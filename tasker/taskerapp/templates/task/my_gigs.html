@@ -21,7 +21,8 @@
                 {% for gig in gigs %}
                 <tr>
                     <td>{{forloop.counter}}</td>
-                    <td><a href="{% url 'gig-detail' gig.id %}">{{gig.title}}</a></td>
+                    <td><a href="{% url 'gig-detail' gig.id %}">  {{ gig.get_category_display}}
+                        </a></td>
                     <td>{{gig.create_time}}</td>
                     
 

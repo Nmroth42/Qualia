@@ -69,8 +69,7 @@ body {
     display: block;
     position: absolute;
     background: rgba(255, 255, 255, 0.0);
-    width: 100%;
-    height: 48px;
+    
     text-align: center;
    right: 0px;
    top:0px;
@@ -161,13 +160,17 @@ body {
     padding-right:10px;
     height: 60px;
     width: auto;
+    transition: .15s ease-in-out;
+    transition-property: background;    
 }
 .headerUserWrapper:hover {
-    background-color: #F4F7F7;
+   
+    transition: .15s ease-in-out;
+    transition-property: background;    
     cursor: pointer;
 }
 .headerUserWrapper:hover .headerMenuWrapper {
-   
+    
     cursor: pointer;
     display:block;
 }
@@ -192,6 +195,10 @@ body {
     background: rgba(255, 255, 255, 1);
     
 }
+#id_songfile {
+    position: relative;
+    left:17px;
+}
 .headerMainWrapper {
     position: absolute;
     width: 100%;
@@ -199,8 +206,16 @@ body {
     left:200px;
     top:18px;
 }
+.headerMainWrapper > div > a:first-child {
+    padding:5px;
+   
+}
 .headerMainWrapper > div > a {
     padding:5px;
+   
+}
+.headerMainWrapper > div > a:hover {
+    text-decoration: none;
 }
 .textUser {
     position: absolute;
@@ -234,6 +249,7 @@ body {
 
 /*---------------Content----------------*/
 .content {
+    margin-top:30px;
     min-height: 100vh;
     right: 0px;
     background-color:#D9E5E5;
@@ -409,6 +425,11 @@ body {
     transition: .0s ease-in-out;
     transition-property: background;
 }
+.search-wrapper {
+    padding:0px;
+    margin-left:150px ; 
+    margin-right:150px;
+}
 
 /*------------------Media-----------------------*/
 @media only screen and (min-width: 900px) {
@@ -416,8 +437,13 @@ body {
         display:none;
     }
     #btn-top {
-        display:none;
+        box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
+        background: white;
+        right: 5vw;
+        top:80vh;
+       
     }
+   
 
 }
 @media only screen and (max-width: 900px) {
