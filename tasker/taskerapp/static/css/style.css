@@ -17,7 +17,19 @@
    
     padding:0px !important
 }
-
+.green {
+  color:rgb(30, 195, 69) 
+}
+.comment-wrapper {
+    display:block;
+    background: rgb(255, 255, 255);
+    padding:10px;
+    margin-top:10px;
+   
+    width:auto;
+    position: relative;
+    margin-bottom:10px;
+}
 
 /*----------------Backgrounds--------------*/
 .body-content {

@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 {% block page %}
-
+{% load bootstrap3%}
 
 
 <style>
@@ -10,7 +10,7 @@
     }
 </style>
 <div class="row">
-    <div class="col-md-8" >
+    <div class="col-md-12" >
         <div class="card">
                 <h5 class="text-center card-header">  {{ gig.get_category_display}}
                     </h5>
@@ -40,9 +40,6 @@
             
             </div>
         </div>
-    </div>
-
-    <div class="col-md-4" >
         <div class="card wrapperBlock" id="{{gig.user.id}}" onclick="myFunction('{{ gig.user.id }}')"  
         data-url="{% url 'profile' gig.user.username %}">
 
@@ -57,7 +54,35 @@
 
             </div>
         </div>
+
+        <div>
+            <p>Comments</p>
+            <div>
+                <form action="." method="POST">
+                        {% csrf_token %}
+                    {% bootstrap_form comment_form %}
+                    <input type="submit" value="Post comment" class="btn">
+                </form>
+            </div>
+            
+            {% for comment in comments%}
+          
+            <div class="comment-wrapper">
+               
+                {{comment.content|safe}}
+            
+                {{comment.user}} | {{comment.timestamp|timesince}} ago 
+                <br>
+                <a href="{% url 'profile' comment.user %}">See profile</a>
+            </div>
+        
+            {% endfor %}
+        </div>
+        </div>
+
     </div>
+
+    
 
 </div>
 

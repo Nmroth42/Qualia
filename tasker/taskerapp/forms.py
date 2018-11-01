@@ -4,6 +4,7 @@ from ckeditor.widgets import CKEditorWidget
 from django.contrib.auth.models import User
 from taskerapp.models import Profile
 from taskerapp.models import Gig
+from taskerapp.models import Comment
 
 
 class UserForm(forms.ModelForm):
@@ -28,7 +29,15 @@ class ProfileForm(forms.ModelForm):
 class GigForm(forms.ModelForm):
     tasks = forms.CharField(label='Tasks', widget=forms.Textarea(attrs={'class': 'ckeditor'} ))
     answers = forms.CharField(label='Answers', widget=forms.Textarea(attrs={'class': 'ckeditor'}))
-    songfile = forms.FileField(label='Speaking')
+    songfile = forms.FileField(label='Speaking', required=False)
     class Meta:
         model = Gig
         fields = ["category", "tasks", "answers", "songfile", "status"]
+
+class CommentForm(forms.Form):
+    
+    
+    content = forms.CharField(label='', widget=forms.Textarea(attrs={'class': 'ckeditor'} ))
+   
+        
+   

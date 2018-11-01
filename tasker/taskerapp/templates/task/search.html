@@ -7,7 +7,7 @@
     
 
     <form class="" action="" method='GET'>
-            <div class="card-body row ">
+            <div class="card-body row " >
                 
                 <!--end of col-->
                 <div class="col"style="padding:0px; padding-right:5px;">
@@ -19,6 +19,7 @@
                     <input class="btn btn-lg btn-success"  type="submit" value="Search"/>
                 </div>
                 <!--end of col-->
+                {{isSet}}
             </div>
         </form>
 
@@ -72,9 +73,13 @@
                     {% if gigs.has_previous %}
                         <a href="?page={{ gigs.previous_page_number }}&q={{request.GET.q}}">previous</a>
                     {% endif %}
-            
+                   
                     <span class="current">
-                        Page {{ gigs.number }} of {{ gigs.paginator.num_pages }}.
+                           
+                            {% if gigs %} Page {% else %}  &#160; {{ gigs.number}}  {% endif %} 
+                            {{ gigs.number }} 
+                            {% if gigs %} of {% else %}  &#160; {{ gigs.number}}  {% endif %} 
+                            {{ gigs.paginator.num_pages }}
                     </span>
             
                     {% if gigs.has_next %}

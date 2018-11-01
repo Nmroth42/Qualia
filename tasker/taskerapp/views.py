@@ -1,10 +1,12 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from taskerapp.forms import UserForm, ProfileForm, UserFormForEdit, GigForm
+from taskerapp.forms import UserForm, ProfileForm, UserFormForEdit, GigForm, CommentForm
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 from django.db.models import Q
-from .models import Gig, Profile
+from .models import Gig, Profile, Comment
+from django.urls import reverse
+from django.contrib.contenttypes.models import ContentType
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 # Create your views here.
@@ -66,11 +68,49 @@ def task_sign_up(request):
     })
 
 def gig_detail(request, id):
-    try:
-        gig = Gig.objects.get(id=id)
-    except Gig.DoesNotExist:
-        return redirect('/')
-    return render(request, 'task/gig_detail.html', {"gig":gig})
+  
+    gig = Gig.objects.get(id=id)
+        
+       
+  
+    comment_form = CommentForm()
+    content_type = ContentType.objects.get_for_model(Gig)
+    obj_id = gig.id
+    comments = Comment.objects.filter(content_type=content_type, object_id=obj_id)
+
+    
+    
+
+    comment_form = CommentForm(request.POST or None)
+    
+    if comment_form.is_valid(): 
+        content_data = comment_form.cleaned_data.get("content")
+        new_comment, created = Comment.objects.get_or_create(
+            user = request.user,
+            content_type = ContentType.objects.get_for_model(Gig),
+            object_id = gig.id,
+            content = content_data
+        )
+        context = {
+        "gig":gig,
+        "comments":comments,
+        "comment_form":comment_form
+        } 
+        return redirect(reverse('gig-detail', kwargs={"id": gig.id}))
+    
+
+    context = {
+    "gig":gig,
+    "comments":comments,
+    "comment_form":comment_form
+    } 
+       
+        
+           
+    return render(request, 'task/gig_detail.html', context)
+
+    
+    
 
 @login_required(login_url='/task/sign-in/' )
 def create_gig(request):
@@ -105,7 +145,7 @@ def profile(request, username):
 def search(request): 
   
     gigs = Gig.objects.all().order_by("-create_time")
-   
+    
     
     
     query = request.GET.get("q")
@@ -116,8 +156,10 @@ def search(request):
             )
         paginator = Paginator(gigs, 9) # Show 25 contacts per page
         page = request.GET.get('page')
+        isSet = True
         try:
             queryset = paginator.page(page)
+
         except PageNotAnInteger:
             # If page is not an integer, deliver first page.
             queryset = paginator.page(1)
@@ -126,11 +168,15 @@ def search(request):
             queryset = paginator.page(paginator.num_pages)
     else:
         queryset = None
+        paginator =  None
     
             
-   
+    context = {
+       "gigs": queryset,
+      
+    }
 
     
-    return render(request, 'task/search.html', {"gigs": queryset})
+    return render(request, 'task/search.html', context )
 
 

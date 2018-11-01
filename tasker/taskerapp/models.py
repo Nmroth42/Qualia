@@ -1,7 +1,10 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.contrib.contenttypes.fields import GenericRelation
 from django.utils import timezone
 from ckeditor.fields import RichTextField
+from django.contrib.contenttypes.fields import GenericForeignKey
+from django.contrib.contenttypes.models import ContentType
 
 class Profile(models.Model): 
     user = models.OneToOneField(User, on_delete=models.CASCADE, )
@@ -26,6 +29,17 @@ class Gig(models.Model):
     songfile = models.FileField(upload_to='songs', blank=True)
     create_time = models.DateTimeField(default=timezone.now)
 
+    
+
+class Comment(models.Model):
+    user = models.ForeignKey(User)
+    content = models.TextField()
+    timestamp = models.DateTimeField(default=timezone.now)
+
+    content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
+    object_id = models.PositiveIntegerField()
+    content_object = GenericForeignKey('content_type', 'object_id')
+
     def __str__(self):
-        return self.title
+        return self.user.username
 # Create your models here.
