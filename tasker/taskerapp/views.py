@@ -33,9 +33,19 @@ def task_home(request):
 
 @login_required(login_url='/task/sign-in/' )
 def task_account(request):
-    user_form = UserFormForEdit(instance = request.user)
+    user_form = UserFormForEdit( instance = request.user)
     task_form = ProfileForm(instance = request.user.profile)
-
+    if request.method == "POST":
+        print("eee ,jq")
+        user_form = UserFormForEdit(request.POST,  instance = request.user)
+        task_form = ProfileForm(request.POST, request.FILES,  instance = request.user.profile)
+        print("eee ,jq")
+        if user_form.is_valid() and task_form.is_valid():
+            user_form.save()
+            task_form.save()
+            print("eee ,jq")
+            return redirect(task_home)
+    
     return render(request, 'task/account.html', {
         "user_form": user_form,
         "task_form": task_form

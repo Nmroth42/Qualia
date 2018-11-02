@@ -16,6 +16,7 @@ class UserForm(forms.ModelForm):
 
 class UserFormForEdit(forms.ModelForm):
     email = forms.CharField(max_length=100, required=True)
+    logo = forms.FileField(required=False)
     class Meta:
         model = User
         fields = ("first_name", "last_name", "email", "username")

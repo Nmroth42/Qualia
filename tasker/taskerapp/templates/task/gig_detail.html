@@ -10,79 +10,86 @@
     }
 </style>
 <div class="row">
-    <div class="col-md-12" >
+    <div class="col-md-12">
         <div class="card">
-                <h5 class="text-center card-header">  {{ gig.get_category_display}}
-                    </h5>
-            </div>
-        <div class="card">
-                <h5 class="text-center card-header"> Tasks </h5>
-            <div class="card-body">
-                    {{gig.tasks|safe}}
-               <!-- <img src="/media/{{gig.photo}}" style="display: block;margin: auto;" alt="" class="img-fluid ">-->
-            </div>
-        </div>
-        
-        <div class="card">
-                <h5 class="text-center card-header"> Answers </h5>
-            <div class="card-body">
-               
-                {{gig.answers|safe}}
-                <hr >
-                <h5 class="text-center">
-                Speaking
-            </h5>  
+            <div style="padding:20px;">
+                <h5 class="text-center"> {{ gig.get_category_display}}
+                </h5>
                 <hr>
+
+
+                <h5 class="text-center "> Tasks </h5>
+
+                {{gig.tasks|safe}}
+                <!-- <img src="/media/{{gig.photo}}" style="display: block;margin: auto;" alt="" class="img-fluid ">-->
+
+
+
+
+                <h5 class="text-center "> Answers </h5>
+
+
+                {{gig.answers|safe}}
+               
+                <h5 class="text-center">
+                    Speaking
+                </h5>
+
                 <audio style="background: rgb(255, 255, 255); width: 100%;" class="horizontal-alignment" controls>
                     <source src="/media/{{gig.songfile}}" type="audio/mpeg">
-                   
-                </audio>
-            
-            </div>
-        </div>
-        <div class="card wrapperBlock" id="{{gig.user.id}}" onclick="myFunction('{{ gig.user.id }}')"  
-        data-url="{% url 'profile' gig.user.username %}">
 
-            <div class="card-body">
-                <div  >
+                </audio>
+
+
+                
+            </div>
+
+
+            
+        </div>
+
+        <div class="card wrapperBlock" id="{{gig.user.id}}" onclick="myFunction('{{ gig.user.id }}')" data-url="{% url 'profile' gig.user.username %}">
+
+
+                <div>
                     <img src="/media/{{gig.user.profile.logo}}" style="clip-path: circle(50.1% at 50% 50%); object-fit: cover;"
                         width="85px" height="85px">
+                        {{gig.user.status}}
                 </div>
-                <hr>
+               
                 {{gig.description|safe}}
 
 
             </div>
-        </div>
 
+       
         <div>
-            <p>Comments</p>
-            <div>
-                <form action="." method="POST">
-                        {% csrf_token %}
-                    {% bootstrap_form comment_form %}
-                    <input type="submit" value="Post comment" class="btn">
-                </form>
-            </div>
-            
-            {% for comment in comments%}
-          
-            <div class="comment-wrapper">
-               
-                {{comment.content|safe}}
-            
-                {{comment.user}} | {{comment.timestamp|timesince}} ago 
-                <br>
-                <a href="{% url 'profile' comment.user %}">See profile</a>
-            </div>
-        
-            {% endfor %}
-        </div>
+            <form action="." method="POST">
+                {% csrf_token %}
+                {% bootstrap_form comment_form %}
+                <input type="submit" value="Evaluate the answer" class="btn btn-pink ">
+            </form>
         </div>
 
+        {% for comment in comments%}
+
+        <div class="comment-wrapper">
+
+            {{comment.content|safe}}
+
+            {{comment.user}} | {{comment.timestamp|timesince}} ago
+            <br>
+            <a href="{% url 'profile' comment.user %}">See profile</a>
+        </div>
+
+        {% endfor %}
     </div>
 
-    
+
+
+</div>
+
+
 
 </div>
 
