@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from django.db import models
 from django.contrib.auth.models import User
 from django.contrib.contenttypes.fields import GenericRelation
@@ -11,8 +12,8 @@ class Profile(models.Model):
     status = models.CharField(max_length=500)
     logo = models.ImageField(upload_to='task_logo/', blank=False)
     
-   # def __str__(self):
-    #    return self.name
+    def __str__(self):
+        return self.name
 
 class Gig(models.Model): 
     CATEGORY_CHOICES = (
@@ -29,6 +30,9 @@ class Gig(models.Model):
     songfile = models.FileField(upload_to='songs', blank=True)
     create_time = models.DateTimeField(default=timezone.now)
 
+    def __str__(self):
+        return self.category
+
     
 
 class Comment(models.Model):
@@ -41,5 +45,5 @@ class Comment(models.Model):
     content_object = GenericForeignKey('content_type', 'object_id')
 
     def __str__(self):
-        return self.user.username
+        return self.name
 # Create your models here.

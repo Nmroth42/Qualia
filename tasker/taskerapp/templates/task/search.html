@@ -7,16 +7,16 @@
     
 
     <form class="" action="" method='GET'>
-            <div class="card-body row " >
+            <div class="card-body row "  >
                 
                 <!--end of col-->
-                <div class="col"style="padding:0px; padding-right:5px;">
-                    <input class="form-control form-control-lg "  type="text" name='q' placeholder="search here" value='{{ request.GET.get.q }}'>
+                <div class="col"style="padding:0px !important;  padding-right:0px;">
+                    <input class="form-control form-control-lg border-radius-none "  type="text" name='q' placeholder="search here" value='{{ request.GET.get.q }}'>
                 </div>
                 <!--end of col-->
                 <div class="col-auto" style="padding:0px;">
                    
-                    <input class="btn btn-lg btn-success"  type="submit" value="Search"/>
+                    <input class="btn btn-lg btn-primary search-btn"  type="submit" value="Search"/>
                 </div>
                 <!--end of col-->
                 {{isSet}}

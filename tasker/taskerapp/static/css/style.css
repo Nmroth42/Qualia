@@ -17,6 +17,19 @@
    
     padding:0px !important
 }
+.search-btn {
+    border-radius: 0px;
+   padding:8.7px;
+
+   border:none;
+   border-bottom:1px solid #007BFF;
+}
+.border-radius-none {
+    border-radius: 0px;
+   border:none;
+    border-bottom:1px solid #007BFF;
+   
+}
 .green {
   color:rgb(30, 195, 69) 
 }
