@@ -8,6 +8,13 @@
     top:60px;
     margin-bottom:80px;
 }
+.form-control{
+    box-shadow:1px 1px 4px 2px   rgba(0, 123, 255, 0.061);
+}
+.form-control:focus {
+    box-shadow:1px 1px 4px 2px   rgba(0, 123, 255, 0.061);
+    
+}
 .horizontal-alignment {
     transform: translate(-50%);
     position: relative;
@@ -20,7 +27,7 @@
 .search-btn {
     border-radius: 0px;
    padding:8.7px;
-
+   box-shadow:1px 1px 4px 4px   rgba(0, 123, 255, 0.061);
    border:none;
    border-bottom:1px solid #007BFF;
 }
@@ -147,15 +154,19 @@ body {
     height: 100px;
     position: absolute;
     width: 150px;
-    top:44px;
+    
     padding-left:25px;
+    
    
+
     padding-right:25px;
     right:-9px;
-    display:none;
+   opacity: 0;
     z-index: 2000;
     background:white;
     box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
+    top:-500px;
+    transition: opacity 0.2s ease-in;
 }
 .wrapperHeader {
     position: absolute;
@@ -194,25 +205,35 @@ body {
     transition-property: background;    
     cursor: pointer;
 }
+
 .headerUserWrapper:hover .headerMenuWrapper {
+    opacity: 1;
     
     cursor: pointer;
     display:block;
+    position: absolute;
+    top:44px;
+   
+    
 }
 .headerUser{
     position: relative;
     top:16px;
 }
+.headerShadow {
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
+    
+}
 .header {
    
-    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
+   
     color: black;
     height: 60px;
     border-bottom:1px solid #F3F3F3; 
     
     background: rgb(255, 255, 255);
-    transition: .15s ease-in-out;
-    transition-property: background;
+    transition: 0.3s ease-in-out;
+    transition-property: all;
     
 }
 .header:hover {
@@ -375,7 +396,10 @@ body {
 }
 .sidebar {
     position: fixed;
+    transition-property:left;
+    transition-duration:0.3s;
     
+    transition-timing-function:ease-in-out;
     height: 100%;
     z-index: 1001;
     top: 60px;

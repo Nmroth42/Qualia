@@ -49,22 +49,28 @@
         </div>
 
         <div class="card wrapperBlock" id="{{gig.user.id}}" onclick="myFunction('{{ gig.user.id }}')" data-url="{% url 'profile' gig.user.username %}">
+                <div style="padding:20px;">
 
-
-                <div>
+               
                     <img src="/media/{{gig.user.profile.logo}}" style="clip-path: circle(50.1% at 50% 50%); object-fit: cover;"
                         width="85px" height="85px">
-                        {{gig.user.status}}
+                        <div style="display:inline-block; position: absolute; margin-left:10px;">
+                                {{profile.user.username}}
+                      <br>
+                      {{profile.status}}
+
                 </div>
+                
+             
+            
                
-                {{gig.description|safe}}
-
-
+                
+            </div>
             </div>
 
        
-        <div>
-            <form action="." method="POST">
+        <div style=" padding-bottom:10px; background:#F8F8F8; border:1px solid rgba(238, 84, 97, 0.356);  box-shadow:1px 1px 4px 4px   rgba(238, 84, 97, 0.061);" >
+            <form action="." method="POST" class="text-center">
                 {% csrf_token %}
                 {% bootstrap_form comment_form %}
                 <input type="submit" value="Evaluate the answer" class="btn btn-pink ">

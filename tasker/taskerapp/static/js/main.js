@@ -20,6 +20,7 @@ new Vue({
 })
 $(document).ready(function () {
     var $btnTop = $("#btn-top");
+    var $header = $("#header");
     $btnTop.fadeOut(0);
     $(window).on("scroll", function () {
         if ($(window).scrollTop() >= 600) {
@@ -33,7 +34,16 @@ $(document).ready(function () {
             scrollTop: 0
         }, 450);
     });
+    $(window).on("scroll", function () {
+        if ($(window).scrollTop() >= 1) {
+            $header.addClass("headerShadow");
+        } else {
+            $header.removeClass("headerShadow");
+        }
+    });
 });
+
+
 
 
 

@@ -90,7 +90,7 @@ def gig_detail(request, id):
 
     
     
-
+    profile = Profile.objects.get(user__username=gig.user.username)
     comment_form = CommentForm(request.POST or None)
     
     if comment_form.is_valid(): 
@@ -112,7 +112,8 @@ def gig_detail(request, id):
     context = {
     "gig":gig,
     "comments":comments,
-    "comment_form":comment_form
+    "comment_form":comment_form,
+    "profile":profile
     } 
        
         
