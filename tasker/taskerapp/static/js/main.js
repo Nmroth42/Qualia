@@ -3,7 +3,9 @@ new Vue({
     el: '#app',
     data: {
         isOpen: true,
-        message: 'menu'
+        message: 'menu',
+        isModuleView: false,
+        messageView:'view_day'
     },
   methods: {
     toggleHeaderUser() {
@@ -14,7 +16,17 @@ new Vue({
             if ((this.isOpen) == false) {
                 this.message = 'close'
             }
+        },
+    toggleSelectView() {
+        this.isModuleView = !this.isModuleView
+        console.log(this.isModuleView)
+        if ((this.isModuleView) == true) {
+            this.messageView = 'apps'
         }
+        if ((this.isModuleView) == false) {
+            this.messageView = 'view_day'
+        }
+    }
      
     }
 })

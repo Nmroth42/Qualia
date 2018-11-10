@@ -69,26 +69,28 @@
             </div>
 
        
-        <div style=" padding-bottom:10px; background:#F8F8F8; border:1px solid rgba(238, 84, 97, 0.356);  box-shadow:1px 1px 4px 4px   rgba(238, 84, 97, 0.061);" >
+      
+
+        {% for comment in comments%}
+
+        <div class="comment-wrapper" style=" border-left:3px solid #007BFF;">
+
+            {{comment.content|safe}}
+
+            {{comment.user}}  
+            <br>
+            <a href="{% url 'profile' comment.user %}">See profile</a>
+            <span  CLASS="float-right">{{comment.timestamp}}</span> 
+        </div>
+
+        {% endfor %}
+        <div style="padding:1px;  padding-bottom:10px;  background:#F8F8F8;   " >
             <form action="." method="POST" class="text-center">
                 {% csrf_token %}
                 {% bootstrap_form comment_form %}
                 <input type="submit" value="Evaluate the answer" class="btn btn-pink ">
             </form>
         </div>
-
-        {% for comment in comments%}
-
-        <div class="comment-wrapper">
-
-            {{comment.content|safe}}
-
-            {{comment.user}} | {{comment.timestamp|timesince}} ago
-            <br>
-            <a href="{% url 'profile' comment.user %}">See profile</a>
-        </div>
-
-        {% endfor %}
     </div>
 
 

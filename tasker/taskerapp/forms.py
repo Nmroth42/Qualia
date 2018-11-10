@@ -16,16 +16,21 @@ class UserForm(forms.ModelForm):
 
 class UserFormForEdit(forms.ModelForm):
     email = forms.CharField(max_length=100, required=True)
-    logo = forms.FileField(required=False)
     class Meta:
         model = User
-        fields = ("first_name", "last_name", "email", "username")
+        fields = ("username", "first_name", "last_name", "email",)
         
 
 class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ("status","logo", )
+        fields = ()
+
+class ProfileFormForEdit(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ("status","logo",)
+
 
 class GigForm(forms.ModelForm):
     tasks = forms.CharField(label='Tasks', widget=forms.Textarea(attrs={'class': 'ckeditor'} ))

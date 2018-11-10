@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from taskerapp.forms import UserForm, ProfileForm, UserFormForEdit, GigForm, CommentForm
+from taskerapp.forms import UserForm, ProfileForm, UserFormForEdit, GigForm, CommentForm, ProfileFormForEdit
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 from django.db.models import Q
@@ -12,6 +12,9 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 # Create your views here.
 def home(request):
     return redirect(task_home)
+
+def lending_page(request):
+    return render(request, 'task/lending_page.html', {})
 
 @login_required(login_url='/task/sign-in/' )
 def task_home(request):
@@ -34,11 +37,11 @@ def task_home(request):
 @login_required(login_url='/task/sign-in/' )
 def task_account(request):
     user_form = UserFormForEdit( instance = request.user)
-    task_form = ProfileForm(instance = request.user.profile)
+    task_form = ProfileFormForEdit(instance = request.user.profile)
     if request.method == "POST":
         print("eee ,jq")
         user_form = UserFormForEdit(request.POST,  instance = request.user)
-        task_form = ProfileForm(request.POST, request.FILES,  instance = request.user.profile)
+        task_form = ProfileFormForEdit(request.POST, request.FILES,  instance = request.user.profile)
         print("eee ,jq")
         if user_form.is_valid() and task_form.is_valid():
             user_form.save()
@@ -64,6 +67,7 @@ def task_sign_up(request):
             new_task = task_form.save(commit=False)
             new_task.user = new_user
             new_task.save()
+            #new_user.save()
 
             login(request, authenticate(
                 username = user_form.cleaned_data["username"],
@@ -138,6 +142,7 @@ def create_gig(request):
             error = 'Data is not valid'
     return render(request, 'task/create_gig.html', {"gig_form":gig_form, "error":error})
       
+
 
 @login_required(login_url='/task/sign-in/' )
 def my_gigs(request):

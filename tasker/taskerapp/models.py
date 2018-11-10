@@ -9,8 +9,8 @@ from django.contrib.contenttypes.models import ContentType
 
 class Profile(models.Model): 
     user = models.OneToOneField(User, on_delete=models.CASCADE, )
-    status = models.CharField(max_length=500)
-    logo = models.ImageField(upload_to='task_logo/', blank=False)
+    status = models.CharField(max_length=500,  blank=True, null=True)
+    logo = models.ImageField(upload_to='task_logo/', blank=True, null=True)
     
     def __str__(self):
         return self.name

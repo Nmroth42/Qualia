@@ -41,7 +41,7 @@
                 <span class="sidebarButtonWrapper" @click="toggleHeaderUser"><span class="sidebarButton"><i class="material-icons">
                             ${message }$</i></span></span>
 
-                <div class="textHeader ">Qualia</div>
+                <div class="textHeader "><a style="color:rgb(0, 0, 0);  text-decoration:none;" href="{% url 'lending-page' %}">Qualia </a> </div>
                 <div id="btn-top"><span><i class="material-icons expand-less">expand_less</i></span></div>
 
                 <div class="headerMainWrapper">
@@ -52,7 +52,7 @@
                 <div class="headerUserWrapper" >
                     <div class="headerUser">
                         <img class="logo" width="35" height="35" src=" {% if user.profile %} {{MEDIA_URL}}{{request.user.profile.logo}} {% else %} 
-                        {% static 'img/man-under-tree-512.png' %} {% endif %}">
+                        {% static 'img/man-under-tree-512.png' %} {% endif %}" >
                         <span style="margin-top:12px;">{{request.user.username}}</span>
 
                         <div class="headerMenuWrapper">

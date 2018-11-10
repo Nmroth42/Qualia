@@ -1,3 +1,6 @@
+.hide {
+    display: none;
+}
 .Main {
   /*  margin-left: 120px;
     margin-right: 120px; */
@@ -27,7 +30,7 @@
 .search-btn {
     border-radius: 0px;
    padding:8.7px;
-   box-shadow:1px 1px 4px 4px   rgba(0, 123, 255, 0.061);
+  
    border:none;
    border-bottom:1px solid #007BFF;
 }
@@ -53,7 +56,7 @@
 
 /*----------------Backgrounds--------------*/
 .body-content {
-    background-color: #D9E5E5;
+    background-color: #F1F3F4;
 }
 
 .bg-blue {
@@ -218,7 +221,8 @@ body {
 }
 .headerUser{
     position: relative;
-    top:16px;
+    top:14px;
+    color: rgba(0, 0, 0, 0.87);
 }
 .headerShadow {
     box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
@@ -229,7 +233,7 @@ body {
    
     color: black;
     height: 60px;
-    border-bottom:1px solid #F3F3F3; 
+    border-bottom:1px solid #DADCE0; 
     
     background: rgb(255, 255, 255);
     transition: 0.3s ease-in-out;
@@ -298,7 +302,7 @@ body {
     margin-top:30px;
     min-height: 100vh;
     right: 0px;
-    background-color:#D9E5E5;
+    background-color: #F1F3F4;
 }
 
 .card {
@@ -313,20 +317,20 @@ body {
 
 }
 .thumbnail {
-    background-color: #FCFCFC;
+    background-color: rgb(255, 255, 255);
     box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.137);
    position: relative;
     padding:20px;
    cursor: pointer;
     padding-top: 14px;
-    max-height: 220px !important;
+    max-height: 220px ;
     min-height: 120px;
     transition: .15s ease-in-out;
     transition-property: background;
 }
 
 .thumbnail:hover {
-    background-color: #F4F7F7;
+  
  
    cursor: pointer;
     padding-top: 14px;
