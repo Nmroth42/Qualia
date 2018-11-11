@@ -1,3 +1,73 @@
 body {
    color:black;
+background: #F1F3F4;
 }
+
+.titleWrapper {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    background: rgb(255, 255, 255);
+    height: 300px;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 3px;
+    border:1px solid #DADCE0; 
+}
+
+.wrapperCard {
+    background: rgba(255, 255, 255, 0);
+    margin-bottom:20px;
+  
+}
+.header {
+    color: black;
+    background: rgb(255, 255, 255);
+    height: 60px;
+    width: 100%;
+    border-bottom:1px solid #DADCE0; 
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
+}
+.headerUserWrapper {
+    position: absolute;
+    right:60px;
+    top:11px;
+    padding-left:5px;
+    padding-right:10px;
+    height: 60px;
+    width: auto;
+    transition: .15s ease-in-out;
+    transition-property: background;    
+}
+.textHeader {
+    position: absolute;
+    top: 15px;
+    left: 80px;
+    font-size: 18px;
+}
+.card {
+    border:1px solid #DADCE0; 
+    height: 400px;
+    background: rgb(255, 255, 255);
+    margin:0px;
+    margin-top:0px;
+    margin-bottom:20px;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
+    
+}
+.card-content {
+    margin-top:40px;
+    width:70%;
+}
+.horizontal-alignment {
+    transform: translate(-50%);
+    position: absolute;
+      left: 50%;
+}
+.btn-pink {
+    color: white;
+    background-color: #EE5462;
+}
+.btn-pink:hover,
+    btn-pink:focus {
+    background-color: #DA4F5D;
+}
+
