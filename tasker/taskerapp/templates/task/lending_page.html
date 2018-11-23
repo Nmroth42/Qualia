@@ -1,8 +1,9 @@
 {% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-   
+
     <meta charset="UTF-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width, initial-scale=1.0">
@@ -14,48 +15,63 @@
     <script src="{% static 'js/bootstrap.min.js' %}"> </script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
-    <link rel="shortcut icon" href="{% static 'img/check-mark-10-32.ico' %}">
+    <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
     <title>Document</title>
 </head>
 <!--style="background-image:url('../../static/img/sky.jpg');   background-attachment: fixed;   background-repeat: no-repeat; background-size: cover;"-->
+
 <body style="background-image:url('../../static/img/happy2.jpg');   background-attachment: fixed;   background-repeat: no-repeat; background-size: cover;">
-  <div class="header">
-      <div class="textHeader "><a style="color:rgb(0, 0, 0);  text-decoration:none;" href="{% url 'lending-page' %}">Qualia </a> </div>
-      <div class="headerUserWrapper" > <button  class="btn btn-success">Log in </button></div>
-      </div>
-        <div class="container">
-                
+    <div class="header">
+        <div class="textHeader "><a style="color:rgb(0, 0, 0);  text-decoration:none;" href="{% url 'lending-page' %}">Qualia
+            </a> </div>
+        <div class="headerUserWrapper">    <a class="btn btn-success" href="{% url 'task-sign-in' %}" type="submit" class="btn  btn-pink  horizontal-alignment ">  
+                Log in </a>  </div>
+    </div>
+    <div class="container">
 
 
 
-                <div  class="titleWrapper" >
 
+        <div class="titleWrapper">
+
+        </div>
+        <div class="row">
+            <div class="col-lg-6 wrapperCard">
+                <div class="card">
+                    <div class="card-content horizontal-alignment">
+                            <a style="bottom:-320px; color:white;" href="{% url 'task-sign-up-learner' %}" type="submit" class="btn  btn-pink  horizontal-alignment ">   Create
+                                    learner account </a>
+                    
+
+                    </div>
                 </div>
-                <div class="row">
-                        <div class="col-lg-6 wrapperCard">
-                            <div class="card" > 
-                         <div class="card-content horizontal-alignment">
-                            <button type="submit"style="bottom:-320px;" class="btn btn-pink horizontal-alignment ">Create learner account</button>
-                           
-                         </div>
-                        </div>
-                        </div>
-                        <div class="col-lg-6 wrapperCard">
-                            <div class="card"  >
-                              <div class="card-content horizontal-alignment">
-                                  <button style="bottom:-320px;"type="submit" class="btn  btn-primary horizontal-alignment ">Create teacher account</button>
-                              </div>
-                        </div>
-                        </div>
-                      </div>
+            </div>
+            <div class="col-lg-6 wrapperCard">
+                <div class="card">
+                    <div class="card-content horizontal-alignment">
+                     
+                        <a style="bottom:-320px;" href="{% url 'task-sign-up-teacher' %}" type="submit" class="btn  btn-primary horizontal-alignment ">   Create
+                            teacher account </a>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-                    
-                    
-                    
-              </div>
-            
+
+
+
+    </div>
+    <div class="footer">
+        <div style="display:flex;">
+        <img alt="" class="img-logo"style="height: 140px;background:rgb(255, 255, 255);  position: relative; width:auto;" src="{% static 'img/q.png' %}">
+        <div style=" width:100%; height: 140px ; background:rgb(255, 255, 255); "></div>
+    </div>
+        <div style="width:100%; padding:30px; border-top:1px solid rgba(70, 70, 70, 0.178);line-height:30px; background:rgb(255, 255, 255);">©2018 Qualia – All rights reserved.</div>
+    </div>
+
 
 </body>
+
 </html>

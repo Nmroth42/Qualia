@@ -18,6 +18,11 @@ background: #F1F3F4;
     margin-bottom:20px;
   
 }
+.footer {
+    position: absolute;
+    width: 100% !important;
+    display: inline-block;
+}
 .header {
     color: black;
     background: rgb(255, 255, 255);

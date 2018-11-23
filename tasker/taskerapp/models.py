@@ -11,6 +11,7 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, )
     status = models.CharField(max_length=500,  blank=True, null=True)
     logo = models.ImageField(upload_to='task_logo/', blank=True, null=True)
+    role = models.CharField(max_length=30, blank=True)
     
     def __str__(self):
         return self.name

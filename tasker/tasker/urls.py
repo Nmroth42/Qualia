@@ -11,14 +11,19 @@ urlpatterns = [
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
     url(r'^$', views.home, name='home'),
     url(r'^task/sign-in/$', auth_views.login, {
-        'template_name': 'task/sign_in.html'},
+        'template_name': 'task/sign_in.html',
+        },
+       
+      
         name='task-sign-in'),
     url(r'^task/sign-out/$', auth_views.logout, {
         'next_page': '/'},
         name='task-sign-out'),
     url(r'^task/$', views.task_home, name="task-home"),
-    url(r'^task/sign-up/$', views.task_sign_up, 
-        name='task-sign-up'),
+    url(r'^task/sign-up-learner/$', views.task_sign_up_learner, 
+        name='task-sign-up-learner'),
+     url(r'^task/sign-up-teacher/$', views.task_sign_up_teacher, 
+        name='task-sign-up-teacher'),
     url(r'^task/account/$', views.task_account, 
         name='task-account'),
     url(r'^task/gigs/(?P<id>[0-9]+)/$', views.gig_detail, 

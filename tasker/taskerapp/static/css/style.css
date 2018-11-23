@@ -581,19 +581,11 @@ body {
 /*---------Footer---------*/
 
 .img-logo {
-    width: 100%;
-    display: none;
-    max-width: 100px;
-    height: 100px;
+  
 }
 
 .footer {
-    background-color: white;
-    color: white;
-    position: relative;
-    display: inline-block;
-    height: 148px;
-    width:100%;
-    bottom:-7px;
-    left: 0px;
+    position: absolute;
+    width: 100% !important;
+    display:inline-block;
 }

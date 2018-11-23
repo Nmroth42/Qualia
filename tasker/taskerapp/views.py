@@ -11,7 +11,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 # Create your views here.
 def home(request):
-    return redirect(task_home)
+    return redirect(lending_page)
 
 def lending_page(request):
     return render(request, 'task/lending_page.html', {})
@@ -54,7 +54,7 @@ def task_account(request):
         "task_form": task_form
     })
 
-def task_sign_up(request):
+def task_sign_up_learner(request):
     user_form = UserForm()
     task_form = ProfileForm()
 
@@ -66,6 +66,7 @@ def task_sign_up(request):
             new_user = User.objects.create_user(**user_form.cleaned_data)
             new_task = task_form.save(commit=False)
             new_task.user = new_user
+            new_task.role = "learner"
             new_task.save()
             #new_user.save()
 
@@ -81,6 +82,33 @@ def task_sign_up(request):
         "task_form": task_form
     })
 
+def task_sign_up_teacher(request):
+    user_form = UserForm()
+    task_form = ProfileForm()
+
+    if request.method == "POST":
+        user_form = UserForm(request.POST)
+        task_form = ProfileForm(request.POST, request.FILES)
+
+        if user_form.is_valid() and task_form.is_valid():
+            new_user = User.objects.create_user(**user_form.cleaned_data)
+            new_task = task_form.save(commit=False)
+            new_task.user = new_user
+            new_task.role = "teacher"
+            new_task.save()
+            #new_user.save()
+
+            login(request, authenticate(
+                username = user_form.cleaned_data["username"],
+                password = user_form.cleaned_data["password"]
+            ))
+
+            return redirect(task_home)
+
+    return render(request, 'task/sign_up.html', {
+        "user_form": user_form,
+        "task_form": task_form
+    })
 def gig_detail(request, id):
   
     gig = Gig.objects.get(id=id)
