@@ -22,26 +22,32 @@
 </head>
 <!--style="background-image:url('../../static/img/sky.jpg');   background-attachment: fixed;   background-repeat: no-repeat; background-size: cover;"-->
 
-<body style="background-image:url('../../static/img/happy2.jpg');   background-attachment: fixed;   background-repeat: no-repeat; background-size: cover;">
+<body style="background:rgb(255, 255, 255);     background-repeat: no-repeat; background-size: cover;">
+    <div id="overlay">
+        <div class="preloader4"></div>
+        
+    </div>
     <div class="header">
-        <div class="textHeader "><a style="color:rgb(0, 0, 0);  text-decoration:none;" href="{% url 'lending-page' %}">Qualia
+        <div class="textHeader "><a style="color:rgba(0, 0, 0, 0);   text-decoration:none;" href="{% url 'lending-page' %}">Qualia
             </a> </div>
-        <div class="headerUserWrapper">    <a class="btn btn-success" href="{% url 'task-sign-in' %}" type="submit" class="btn  btn-pink  horizontal-alignment ">  
+        <div class="headerUserWrapper">    <a style="box-shadow: 0px 0px 10px #C5EEFD;" class="btn btn-light transition" id="login" href="{% url 'task-sign-in' %}" type="submit" >  
                 Log in </a>  </div>
     </div>
-    <div class="container">
+    <div class="container" >
 
 
 
 
         <div class="titleWrapper">
-
+Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil harum voluptatibus in deleniti tenetur. Illo eum earum totam? Necessitatibus mollitia quisquam tempore reiciendis dolore. Illum sequi distinctio iure ullam dolorum!
+Totam eaque voluptas, ab facilis iste amet ex aspernatur dolores minus non, illo at consequuntur earum? Repudiandae id enim, exercitationem eos, quibusdam ex totam iusto nobis error nesciunt reiciendis perspiciatis.
+Beatae, debitis eius eos soluta animi aspernatur fuga neque accusantium rerum magni laboriosam illum adipisci facilis, ut nesciunt id? Illo harum quibusdam ut. Inventore odio doloremque omnis ea, saepe facilis.
         </div>
         <div class="row">
             <div class="col-lg-6 wrapperCard">
                 <div class="card">
                     <div class="card-content horizontal-alignment">
-                            <a style="bottom:-320px; color:white;" href="{% url 'task-sign-up-learner' %}" type="submit" class="btn  btn-pink  horizontal-alignment ">   Create
+                            <a style="bottom:-320px; color:white;" href="{% url 'task-sign-up-learner' %}" type="submit" class="btn  transition btn-pink  horizontal-alignment ">   Create
                                     learner account </a>
                     
 
@@ -52,7 +58,7 @@
                 <div class="card">
                     <div class="card-content horizontal-alignment">
                      
-                        <a style="bottom:-320px;" href="{% url 'task-sign-up-teacher' %}" type="submit" class="btn  btn-primary horizontal-alignment ">   Create
+                        <a style="bottom:-320px;" href="{% url 'task-sign-up-teacher' %}" type="submit" class="btn transition  btn-primary horizontal-alignment ">   Create
                             teacher account </a>
                     </div>
                 </div>
@@ -65,12 +71,13 @@
     </div>
     <div class="footer">
         <div style="display:flex;">
-        <img alt="" class="img-logo"style="height: 140px;background:rgb(255, 255, 255);  position: relative; width:auto;" src="{% static 'img/q.png' %}">
+      <!--  <img alt="" class="img-logo"style="height: 140px;background:rgb(255, 255, 255);  position: relative; width:auto;" src="{% static 'img/q.png' %}">
         <div style=" width:100%; height: 140px ; background:rgb(255, 255, 255); "></div>
-    </div>
+  </div> --> 
         <div style="width:100%; padding:30px; border-top:1px solid rgba(70, 70, 70, 0.178);line-height:30px; background:rgb(255, 255, 255);">©2018 Qualia – All rights reserved.</div>
     </div>
 
+    <script src="{% static 'js/lending.js' %}"> </script>
 
 </body>
 

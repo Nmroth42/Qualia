@@ -31,6 +31,7 @@ new Vue({
     }
 })
 $(document).ready(function () {
+    
     var $btnTop = $("#btn-top");
     var $header = $("#header");
     $btnTop.fadeOut(0);
@@ -64,3 +65,8 @@ $(document).ready(function () {
     var url = $(id).attr("data-url");
     document.location.href = url;
 }
+var $overlay = $("#overlay");
+var overlay = document.getElementById("overlay");
+window.addEventListener("load", function(){
+    $overlay.fadeOut(280);
+})
