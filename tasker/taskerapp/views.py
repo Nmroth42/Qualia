@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 from django.db.models import Q
 from .models import Gig, Profile, Comment
 from django.urls import reverse
+from django.http import JsonResponse
 from django.contrib.contenttypes.models import ContentType
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
@@ -112,17 +113,13 @@ def task_sign_up_teacher(request):
 def gig_detail(request, id):
   
     gig = Gig.objects.get(id=id)
-        
-       
+    profile = Profile.objects.get(user__username=gig.user.username)
+    
   
     comment_form = CommentForm()
     content_type = ContentType.objects.get_for_model(Gig)
     obj_id = gig.id
     comments = Comment.objects.filter(content_type=content_type, object_id=obj_id)
-
-    
-    
-    profile = Profile.objects.get(user__username=gig.user.username)
     comment_form = CommentForm(request.POST or None)
     
     if comment_form.is_valid(): 
@@ -223,4 +220,10 @@ def search(request):
     
     return render(request, 'task/search.html', context )
 
+def validate_username(request):
+    username = request.GET.get('username', None)
+    data = {
+        'is_taken': User.objects.filter(username__iexact=username).exists()
+    }
+    return JsonResponse(data)
 

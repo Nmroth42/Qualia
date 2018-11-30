@@ -38,6 +38,7 @@ urlpatterns = [
         name='search'),    
     url(r'^task/lending-page/$', views.lending_page, 
         name='lending-page'), 
+    url(r'^ajax/validate_username/$', views.validate_username, name='validate_username'),
         
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

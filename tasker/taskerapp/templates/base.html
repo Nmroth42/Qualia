@@ -51,7 +51,7 @@
                 <div class="headerMainWrapper">
                     <div>  <a href="{% url 'task-home' %}"> Main  </a> <a class="" href="{% url 'search' %}">Search</a> 
                         {% if user.profile.role == 'learner' %}  <a href="{% url 'create-gig' %}">Create</a> {% endif %}
-                        <a href="{% url 'my-gigs' %}" >My gigs</a></div>
+                        {% if user.profile.role == 'learner' %}   <a href="{% url 'my-gigs' %}" >My gigs</a>{% endif %}</div>
                 </div>
                 <div class="headerUserWrapper" >
                     <div class="headerUser">
@@ -102,11 +102,11 @@
             <div class="list-group text-center">
                 <span class="text list-group-span">
                     <span class="sidebarUserWrapper"> Menu </span>
-
+                  
 
                     <a href="{% url 'task-home' %}" class="list-group-item "> Main page </a>
-                    <a href="{% url 'my-gigs' %}" class="list-group-item">My gigs</a>
-                    <a href="{% url 'create-gig' %}" class="list-group-item">Create a gig</a>
+                    {% if user.profile.role == 'learner' %}  <a href="{% url 'my-gigs' %}" class="list-group-item">My gigs</a> {% endif %}
+                    {% if user.profile.role == 'learner' %}   <a href="{% url 'create-gig' %}" class="list-group-item">Create a gig</a> {% endif %}
 
 
                 </span>

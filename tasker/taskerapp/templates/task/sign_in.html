@@ -1,5 +1,6 @@
 {% extends 'base_signup.html' %}
 {% load bootstrap3%}
+{% load staticfiles %}
 {% block title %}
 Sign in
 {% endblock %}
@@ -11,8 +12,8 @@ Sign in
     {% csrf_token %}
     {% bootstrap_form form%}
     <br>
-    <button type="submit" style="margin-left:70%;" class="btn btn-pink ">Sign in</button>
+    <button type="submit" style="margin-left:70%;" class="btn btn-pink transition">Sign in</button>
     <br>
-   
+    <script src="{% static 'js/sign_in.js' %}"> </script>
 </form>
 {% endblock %}

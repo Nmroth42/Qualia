@@ -60,7 +60,7 @@
 }
 
 .bg-blue {
-    background-color: #D9E5E5;
+    background-color:#F1F3F4;
 }
 
 .bg-white {
@@ -85,6 +85,9 @@ body {
 
 .sidebarButton:hover {
     cursor: pointer;
+}
+.help-block {
+   
 }
 
 #id_photo {

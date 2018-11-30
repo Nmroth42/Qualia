@@ -22,14 +22,14 @@
         <div class="row">
             <div class="col-lg-4">
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-4" >
                 <br>
                 <br>
                 <br>
-                <div class="card">
+                <div class="card"style="box-shadow: 0px 0px 10px #C5EEFD;">
                     <div class="card-body">
-                        <h3 class="text-center"> <b>{% block heading %}{% endblock %}</b></h3>
-                        <br>
+                        <h4 class="text-center">{% block heading %}{% endblock %}</h4>
+                        <hr>
                         {% block content %}{% endblock %}
                     </div>
                 </div>
@@ -40,7 +40,7 @@
 
         </div>
     </div>
-    <script src="{% static 'js/sign.js' %}"> </script>
+   
 </body>
 
 </html>

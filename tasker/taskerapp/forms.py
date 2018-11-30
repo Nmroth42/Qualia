@@ -9,7 +9,7 @@ from taskerapp.models import Comment
 
 class UserForm(forms.ModelForm):
     email = forms.CharField(max_length=100, required=True)
-    
+    username = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'username'}))
     password = forms.CharField(widget=forms.PasswordInput())
     class Meta:
         model = User
@@ -46,5 +46,5 @@ class CommentForm(forms.Form):
     
     content = forms.CharField(label='', widget=forms.Textarea(attrs={'class': 'ckeditor'} ))
    
-        
+
    

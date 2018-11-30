@@ -1,5 +1,6 @@
 {% extends 'base_signup.html' %}
 {% load bootstrap3%}
+{% load staticfiles %}
 {% block heading %}
 Sign up
 {% endblock %}
@@ -10,7 +11,7 @@ Sign up
     {% bootstrap_form task_form%}
     <button type="submit" style="margin-left:70%;"class="btn btn-pink ">Sign up</button>
 </form>
-
+<script src="{% static 'js/sign.js' %}"> </script>
 {% endblock %}
 
 
