@@ -6,7 +6,10 @@ Home
 {% endblock %}
 
 {% block page %}
-
+<div id="overlay">
+    <div class="preloader4" style=" top:35%;"></div>
+    
+</div>
 <div class="content-wrapper ">
     <div class="ViewSelectWrapper" style="width: 100%; height: 32px; background: rgb(255, 255, 255);
      border:1px solid #DADCE0;">
@@ -23,7 +26,7 @@ Home
 
 
                 <!--<img class="img-thumbnail"  href="{% url 'gig-detail' gig.id %}" src="/media/{{gig.photo}}" > -->
-                <hr>
+               <br>
                 <div class="gig-title text-center">
 
                     {{ gig.get_category_display}}

@@ -13,8 +13,6 @@ urlpatterns = [
     url(r'^task/sign-in/$', auth_views.login, {
         'template_name': 'task/sign_in.html',
         },
-       
-      
         name='task-sign-in'),
     url(r'^task/sign-out/$', auth_views.logout, {
         'next_page': '/'},
@@ -38,6 +36,7 @@ urlpatterns = [
         name='search'),    
     url(r'^task/lending-page/$', views.lending_page, 
         name='lending-page'), 
+   
     url(r'^ajax/validate_username/$', views.validate_username, name='validate_username'),
         
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

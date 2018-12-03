@@ -55,18 +55,19 @@ background: #F1F3F4;
     border:2px;
 }
 .btn-light:hover {
-    background: white;
+    background: rgb(255, 255, 255);
    
 }
 .textHeader {
     
     position: relative;
-    text-shadow: 0px 4px 4px rgba(2, 40, 255, 0.123);
+    
     background-repeat: repeat;
-background-image:url('../../static/img/happy.jpg');
+
+-webkit-background-clip: text;
 background-size: 100px 110px;
 background-clip: text;
-color:transparent;
+color:#007BFF;
     top: 15px;
    left:13px;
     font-size: 50px;

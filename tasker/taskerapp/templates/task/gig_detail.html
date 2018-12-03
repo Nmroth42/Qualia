@@ -11,7 +11,7 @@
 </style>
 <div class="row">
     <div class="col-md-12">
-        <div class="card">
+        <div class="card" style="margin-bottom:0px; border-radius: 0px;">
             <div style="padding:20px;">
                 <h5 class="text-center"> {{ gig.get_category_display}}
                 </h5>
@@ -48,7 +48,7 @@
 
         </div>
 
-        <div class="card wrapperBlock" id="{{gig.user.id}}" onclick="myFunction('{{ gig.user.id }}')" data-url="{% url 'profile' gig.user.username %}">
+        <div class="card wrapperBlock" id="{{gig.user.id}}" onclick="myFunction('{{ gig.user.id }}')" style="margin-top:0px !important;border-top:1px solid white;border-radius: 0px; " data-url="{% url 'profile' gig.user.username %}">
             <div style="padding:20px;">
 
 
@@ -103,7 +103,7 @@
         </form>
     </div>
         {% endif %}
-       
+     
        
     </div>
 
@@ -113,6 +113,5 @@
 
 
 
-</div>
 
 {% endblock %}

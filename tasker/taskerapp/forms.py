@@ -28,6 +28,7 @@ class ProfileForm(forms.ModelForm):
         fields = ()
 
 class ProfileFormForEdit(forms.ModelForm):
+    status = forms.CharField(label='About me', widget=forms.Textarea)
     class Meta:
         model = Profile
         fields = ("status","logo",)

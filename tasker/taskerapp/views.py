@@ -5,6 +5,8 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 from django.db.models import Q
 from .models import Gig, Profile, Comment
+from http.client import responses
+from django.http import HttpResponse
 from django.urls import reverse
 from django.http import JsonResponse
 from django.contrib.contenttypes.models import ContentType
@@ -110,8 +112,14 @@ def task_sign_up_teacher(request):
         "user_form": user_form,
         "task_form": task_form
     })
-def gig_detail(request, id):
+
+
+
   
+def gig_detail(request, id):
+    
+    
+   
     gig = Gig.objects.get(id=id)
     profile = Profile.objects.get(user__username=gig.user.username)
     
@@ -143,11 +151,17 @@ def gig_detail(request, id):
     "comments":comments,
     "comment_form":comment_form,
     "profile":profile
+    
     } 
        
         
-           
-    return render(request, 'task/gig_detail.html', context)
+    response = render(request, 'task/gig_detail.html', context) 
+    if not request.COOKIES.get('visits'):        
+        response.set_cookie('visits', '1')
+    else:
+        visits = int(request.COOKIES.get('visits', '1')) + 1
+        response.set_cookie('visits', str(visits))
+    return response   
 
     
     
@@ -190,6 +204,11 @@ def search(request):
     
     
     query = request.GET.get("q")
+    if query == None : 
+        query = ""
+    
+    
+    query = query.lower()
     if query:
         gigs = gigs.filter(
             Q(category__icontains=query) |
@@ -226,4 +245,6 @@ def validate_username(request):
         'is_taken': User.objects.filter(username__iexact=username).exists()
     }
     return JsonResponse(data)
+
+
 

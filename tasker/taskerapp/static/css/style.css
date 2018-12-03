@@ -296,12 +296,12 @@ body {
 .textHeader {
     position: absolute;
     top: 12px;
-    text-shadow: 0px 4px 4px rgba(2, 40, 255, 0.123);
+    
     left: 80px;
-    background-image:url('../../static/img/happy.jpg');
+    color:#007BFF;
     background-size: 100px 110px;
 background-clip: text;
-color:transparent;
+
     font-size: 23px;
 }
 
@@ -315,7 +315,7 @@ color:transparent;
 
 .card {
     margin-top: 12px !important;
-    margin-bottom: 30px !important;
+    margin-bottom: 30px ;
     padding-top: 0px !important;
     
 }
@@ -504,12 +504,29 @@ color:transparent;
         top:80vh;
        
     }
+    
    
 
 }
 @media only screen and (max-width: 900px) {
     .headerMainWrapper {
         display:none;
+    }
+   
+    #overlay {
+       left:-1000px !important;
+       
+    }
+    .profile_1 {
+        background-color: white !important;
+       margin:auto;
+    }
+    .profile {
+        margin:auto;
+    }
+    .preloader4 {
+        width:0px;
+        height:0px;
     }
     .headerUserWrapper {
         display:none;
@@ -600,7 +617,7 @@ color:transparent;
 #overlay {
     width:100%;
     height:100%;
-    
+ 
     padding:0px;
     left:0px;
     top:0px;
@@ -635,3 +652,4 @@ color:transparent;
     from {-webkit-transform: rotate(0deg);}
     to {-webkit-transform: rotate(360deg);}
  }
+

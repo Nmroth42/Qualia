@@ -3,21 +3,41 @@
 
 {% block page %}
 
-<div class="card">
-    <div class="jumbotron text-center">
-            <img class="logo" src=" {% if user.profile %} {{MEDIA_URL}}{{request.user.profile.logo}} {% else %} {% static 'img/man-under-tree-512.png' %} {% endif %}"
-            width="85" height="85">
+<div class="text-center" style="display: inline-flex;  flex-wrap: wrap; width: 100%; background:white; border:1px solid #DADCE0; ">
+    <div class="profile_1" style=" padding:10px;  background-color: #F4F7F7; ">
+            <img class="logo" src=" {% if user.profile %} {{MEDIA_URL}}{{profile.logo}} {% else %} {% static 'img/man-under-tree-512.png' %} {% endif %}"
+            width="200" height="200" style="margin: 20px auto;">
                <h3>{{profile.user.username}} </h3> 
                 <p>
-                    {{profile.role}}
+                    {{profile.role|upper}}
                     <br>
-                    {{profile.status}}
+                  
                 </p>
                 
     </div>
+    <div class="profile" style="border:1px solid rgba(255, 0, 0, 0); padding:25px;">
+       
+        
+      
+       
+        <div style="float:left;">
+        <span style="color:rgba(0, 0, 0, 0.5);"> about me: </span> {{profile.status}}
+    </div>   
+    <br>
+        {% if profile.user.username == request.user.username %}
+        <span style="color:rgba(0, 0, 0, 0.5);"> viewed tasks for session: </span> {{ request.COOKIES.visits}}
+        {% endif %}
+     
+          
+           
+            
+</div>
   
           
         
 </div>
+
+
+
 
 {% endblock %}
