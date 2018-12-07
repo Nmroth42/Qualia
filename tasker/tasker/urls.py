@@ -34,7 +34,7 @@ urlpatterns = [
         name='profile'),
     url(r'^task/search/$', views.search, 
         name='search'),    
-    url(r'^task/lending-page/$', views.lending_page, 
+    url(r'^lending-page/$', views.lending_page, 
         name='lending-page'), 
    
     url(r'^ajax/validate_username/$', views.validate_username, name='validate_username'),

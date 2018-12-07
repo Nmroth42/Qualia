@@ -11,7 +11,7 @@
                 <p>
                     {{profile.role|upper}}
                     <br>
-                  
+                    
                 </p>
                 
     </div>
@@ -20,14 +20,22 @@
         
       
        
-        <div style="float:left;">
-        <span style="color:rgba(0, 0, 0, 0.5);"> about me: </span> {{profile.status}}
+        <div style="float:left; text-align: left;">
+           
+        <span style="color:rgba(0, 0, 0, 0.5);"> First name: </span> {{profile.user.first_name}}
+        <br>
+        <span style="color:rgba(0, 0, 0, 0.5);">Last name: </span> {{profile.user.last_name}}
+        <br>
+        <span style="color:rgba(0, 0, 0, 0.5);"> About me: </span> {{profile.status}}
     </div>   
     <br>
+   
+    <div style="float:left; " >
+      
         {% if profile.user.username == request.user.username %}
-        <span style="color:rgba(0, 0, 0, 0.5);"> viewed tasks for session: </span> {{ request.COOKIES.visits}}
+        <span style="color:rgba(0, 0, 0, 0.5);"> Viewed tasks for session: </span> {{ request.COOKIES.visits}}
         {% endif %}
-     
+    </div>
           
            
             

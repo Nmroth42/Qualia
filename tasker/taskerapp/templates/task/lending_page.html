@@ -16,8 +16,7 @@
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
     <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}">
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto" rel="stylesheet"> 
     <title>Document</title>
 </head>
 <!--style="background-image:url('../../static/img/sky.jpg');   background-attachment: fixed;   background-repeat: no-repeat; background-size: cover;"-->
@@ -30,21 +29,24 @@
         <div class="headerUserWrapper">    <a style=" border: 1px solid #DADCE0;" class="btn btn-light " id="login" href="{% url 'task-sign-in' %}" type="submit" >  
                 Log in </a>  </div>
     </div>
-    <div class="container" style="background: rgb(250, 247, 247);border-top:1px solid  rgba(70, 70, 70, 0.178);">
+    <div class="container" style="background: rgb(255, 255, 255);border-top:1px solid  rgba(70, 70, 70, 0.065);
+    ont-family: 'Montserrat', sans-serif; font-size:16px; color:rgba(0, 0, 0, 0.87);">
 
 
 
 
         <div class="titleWrapper">
-Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil harum voluptatibus in deleniti tenetur. Illo eum earum totam? Necessitatibus mollitia quisquam tempore reiciendis dolore. Illum sequi distinctio iure ullam dolorum!
-Totam eaque voluptas, ab facilis iste amet ex aspernatur dolores minus non, illo at consequuntur earum? Repudiandae id enim, exercitationem eos, quibusdam ex totam iusto nobis error nesciunt reiciendis perspiciatis.
-Beatae, debitis eius eos soluta animi aspernatur fuga neque accusantium rerum magni laboriosam illum adipisci facilis, ut nesciunt id? Illo harum quibusdam ut. Inventore odio doloremque omnis ea, saepe facilis.
+            Qualia – это веб-сервис, объединяющий студентов и высококвалифицированных преподавателей со всего мира. Сервис предусматривает две главные роли: Студент или Преподаватель. С его помощью студенты могут подготовиться к ЕГЭ IELTS TOEFL, а преподаватели помогают им получить новые знания и высокие баллы. 
         </div>
         <div class="row">
             <div class="col-lg-6 wrapperCard">
                 <div class="card">
+                        <div >
+                        Вы - студент и хотите сдать ваш экзамен на максимальное количество баллов? Тогда вы можете сами создавать свои задания и решать их, а также присоединиться к другим студентам. Эти задания будут проверены высококвалифицированными преподавателями, которые помогут вам разобраться в ваших ошибках. 
+                    </div>
+                        <hr>
                     <div class="card-content horizontal-alignment">
-                            <a style="bottom:-320px; color:white;" href="{% url 'task-sign-up-learner' %}" type="submit" class="btn   btn-pink  horizontal-alignment ">   Create
+                            <a style="bottom:-175px; color:white;" href="{% url 'task-sign-up-learner' %}" type="submit" class="btn   btn-pink  horizontal-alignment ">   Create
                                     learner account </a>
                     
 
@@ -53,9 +55,15 @@ Beatae, debitis eius eos soluta animi aspernatur fuga neque accusantium rerum ma
             </div>
             <div class="col-lg-6 wrapperCard">
                 <div class="card">
+                    <div class="lineup" style="height:145px; ">
+                        Вы преподаватель английского языка и вам нечем заняться в свободный вечер? А может быть вы просто хотите помогать студентам в подготовки к экзаменам? В таком случае этот сервис для вас. Вы можете проверять задания студентов со всего мира и помочь им достигнуть свои цели!
+                    </div>
+                       
+                        <hr>
                     <div class="card-content horizontal-alignment">
+                        
                      
-                        <a style="bottom:-320px;" href="{% url 'task-sign-up-teacher' %}" type="submit" class="btn   btn-primary horizontal-alignment ">   Create
+                        <a style="bottom:-175px;" href="{% url 'task-sign-up-teacher' %}" type="submit" class="btn   btn-primary horizontal-alignment ">   Create
                             teacher account </a>
                     </div>
                 </div>

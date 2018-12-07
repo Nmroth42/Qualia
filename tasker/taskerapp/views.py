@@ -50,7 +50,8 @@ def task_account(request):
             user_form.save()
             task_form.save()
             print("eee ,jq")
-            return redirect(task_home)
+            
+            return redirect(reverse('profile', kwargs={"username": request.user.username}))
     
     return render(request, 'task/account.html', {
         "user_form": user_form,
@@ -179,7 +180,42 @@ def create_gig(request):
             return redirect(my_gigs)
         else:
             error = 'Data is not valid'
-    return render(request, 'task/create_gig.html', {"gig_form":gig_form, "error":error})
+    
+    show = False
+    
+    if not request.COOKIES.get('visits_creates'):    
+        show = True
+    else:
+        check = request.COOKIES.get('visits_creates')
+        check = int(check)
+        if check <= 2:
+            show = True
+
+    context = {
+    "gig_form":gig_form,
+    "error":error,
+    "show":show
+    
+    } 
+    
+
+
+    response = HttpResponse()
+    response = render(request, 'task/create_gig.html', context) 
+    if not request.COOKIES.get('visits_creates'):        
+        response.set_cookie('visits_creates', '1')
+        
+        return response  
+    else:
+
+        
+        visits_creates = int(request.COOKIES.get('visits_creates', '1')) + 1
+        response.set_cookie('visits_creates', str(visits_creates))
+            
+        return response  
+       
+    
+     
       
 
 

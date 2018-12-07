@@ -73,14 +73,21 @@
 
         {% for comment in comments%}
 
-        <div class="comment-wrapper" style=" border-left:3px solid #007BFF;">
-
+        <div class="comment-wrapper" style=" padding:20px;border:1px solid rgba(0, 123, 255, 0.287);">
+                <div style="background: #F4F7F7; padding:10px; border-radius:10px;">
+                         {{comment.user}}
+                        <span CLASS="float-right"><a href="{% url 'profile' comment.user %}">See profile</a></span>
+                    </div>
+              
+               <div style="padding:12px;padding-bottom:0px">
             {{comment.content|safe}}
-
-            {{comment.user}}
-            <br>
-            <a href="{% url 'profile' comment.user %}">See profile</a>
-            <span CLASS="float-right">{{comment.timestamp}}</span>
+            
+        </div>
+          
+          
+       
+            <span CLASS="float-right" style="color:rgba(0, 0, 0, 0.5);">{{comment.timestamp}}</span>
+        <br>
         </div>
 
         {% endfor %}
