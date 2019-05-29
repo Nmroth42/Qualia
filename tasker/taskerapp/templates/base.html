@@ -1,5 +1,5 @@
 {% load staticfiles %}
-
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,40 +22,34 @@
 </head>
 
 <style>
-    .Hide {
-        left: -300px;
-    }
 
-    @media only screen and (max-width: 900px) {
-        .Hide {
-            left: -100%;
-        }
-    }
-</style>
+</style>k
 
 <body class="body-content">
        
     <div id="app" class="container">
 
         <div class="mainHeader ">
+              
             <div class="header" id="header">
+                   
                 <span class="sidebarButtonWrapper" @click="toggleHeaderUser"><span class="sidebarButton"><i class="material-icons">
-                            ${message }$</i></span></span>
+                            ${message}$</i></span></span>
 
-                <div class="textHeader "><a style=" text-decoration:none;" href="{% url 'lending-page' %}">Qualia </a> </div>
+                <div class="textHeader "><a style=" text-decoration:none;" >Qualia </a> </div>
                 <div id="btn-top"><span><i class="material-icons expand-less">expand_less</i></span></div>
 
                 <div class="headerMainWrapper">
                     <div>  <a href="{% url 'task-home' %}"> Main  </a> <a class="" href="{% url 'search' %}">Search</a> 
-                        {% if user.profile.role == 'learner' %}  <a href="{% url 'create-gig' %}">Create</a> {% endif %}
-                        {% if user.profile.role == 'learner' %}   <a href="{% url 'my-gigs' %}" >My gigs</a>{% endif %}</div>
+                        {% if user.profile.role == 'learner' %}  <a href="{% url 'create-gig' %}">Ask a Question</a> {% endif %}
+                        {% if user.profile.role == 'learner' %}   <a href="{% url 'my-gigs' %}" >My Questions</a>{% endif %}</div>
                 </div>
                 <div class="headerUserWrapper" >
                     <div class="headerUser">
-                        <img class="logo" width="35" height="35" src=" {% if user.profile.logo %} {{MEDIA_URL}}{{request.user.profile.logo}} {% else %} 
+                        <img class="logo" width="35" height="35" src="{% if user.profile.logo %} {{MEDIA_URL}}{{request.user.profile.logo}} {% else %} 
                         {% static 'img/user2.png' %} {% endif %} {% if user.profile.logo == none %}  {% static 'img/user.png' %} {% endif %} " >
-                        <span style="margin-top:12px;">{{request.user.username}}</span>
-
+                        <span style="margin-top:12px;">{{request.user.username}} <span style="padding-left:3px; font-size: 13px;  vertical-align: text-top; color:rgb(77, 74, 74);"> &#9660;</span></span>
+                       
                         <div class="headerMenuWrapper">
                                 <div class="UserWrapper ">
                                  
@@ -74,14 +68,15 @@
 
         </div>
 
-        <div class="sidebar-top" :class="{'Hide': isOpen}"></div>
+       
         <div class=" sidebar " :class="{'Hide': isOpen}">
             {% block sidebar %}
 
             <div class="text-center userProf">
-                <img class="logo" src=" {% if user.profile %} {{MEDIA_URL}}{{request.user.profile.logo}} {% else %} {% static 'img/man-under-tree-512.png' %} {% endif %}"
-                    width="85" height="85">
-
+                
+                <img class="logo" width="85" height="85" src="{% if user.profile.logo %}{{MEDIA_URL}}{{request.user.profile.logo}}{% else %} 
+                {% static '/img/user2.png' %}{% endif %} {% if user.profile.logo == none %}{% static '/img/user.png' %} {% endif %} " >
+                
                 <div style="margin-top:12px;">{{request.user.username}}</div>
 
                 <hr>
@@ -134,9 +129,11 @@
 
   </div>
 
-    <script src="{% static 'js/main.js' %}"> </script>
+    
 
-
+  <script src="{% static 'js/main.js' %}">
+   
+  </script>
 </body>
 
 </html>

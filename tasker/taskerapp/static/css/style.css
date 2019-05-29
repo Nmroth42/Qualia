@@ -1,5 +1,11 @@
-.hide {
-    display: none;
+.hideview {
+   display:none;
+}
+
+@media only screen and (max-width: 900px) {
+    .Hide {
+        left: 0px  !important;
+    }
 }
 .Main {
   /*  margin-left: 120px;
@@ -299,14 +305,14 @@ body {
 
 .textHeader {
     position: absolute;
-    top: 12px;
+    top: 14px;
     
-    left: 80px;
+    left: 60px;
     color:#007BFF;
     background-size: 100px 110px;
 background-clip: text;
 
-    font-size: 23px;
+    font-size: 20px;
 }
 
 /*---------------Content----------------*/
@@ -420,8 +426,10 @@ background-clip: text;
     z-index: 1001;
     top: 60px;
     margin-bottom: 19px;
-    left: 0px;
+    left: -100% ;
     
+   
+
     padding:20px;
     padding-top: 25px;
     width:300px;
@@ -496,7 +504,8 @@ background-clip: text;
     margin-right:150px;
 }
 
-/*------------------Media-----------------------*/
+/*------------------
+-----------------------*/
 @media only screen and (min-width: 900px) {
     .sidebarButtonWrapper {
         display:none;
@@ -558,7 +567,7 @@ background-clip: text;
         left: 50%;
     }
     .sidebar {
-        width: 100%;
+        width: 100vw;
         box-shadow: 0 3px 6px rgba(0, 0, 0, 0.294);
         border-top-right-radius: 0px;
         border-bottom-right-radius: 0px;

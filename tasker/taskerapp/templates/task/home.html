@@ -19,7 +19,7 @@ Home
                     view_day</i>
                     -->
     </div>
-    <div class="row" style="padding: 8px;" :class="{'hide': isModuleView}">
+    <div class="row" style="padding: 8px;" :class="{'hideview': isModuleView}">
         {% for gig in gigs %}
         <div class="wrapper-thumbnail col-lg-4">
             <div class="thumbnail  " onclick="myFunction('{{ gig.id }}')" data-url="{% url 'gig-detail' gig.id %}" id="{{gig.id}}">
@@ -37,7 +37,8 @@ Home
                 <br>
                 <div class="gig-bottom">
 
-                    <img src="/media/{{gig.user.profile.logo}}" style="clip-path: circle(50.1% at 50% 50%); object-fit: cover;
+                    <img src="{% if gig.user.profile.logo %}{{MEDIA_URL}}{{gig.user.profile.logo}}{% else %} 
+                    {% static '/img/user2.png' %}{% endif %} {% if gig.user.profile.logo == none %}{% static '/img/user.png' %} {% endif %} " style="clip-path: circle(50.1% at 50% 50%); object-fit: cover;
                 top:9px; position: relative; margin-right:6px;"
                         width="40px" height="40px">
                     <span> {{gig.user.username}}<br></span>
@@ -54,7 +55,7 @@ Home
 
     </div>
     <!----------------------------------------------------------------------------------------------- -->
-    <div class="row ListlView" style="padding: 8px;" :class="{'hide': !isModuleView}">
+    <div class="row ListlView" style="padding: 8px;" :class="{'hideview': !isModuleView}">
         {% for gig in gigs %}
         <div class="wrapper-thumbnail col-lg-12">
             <div class="thumbnail  " style=" max-height: 450px ;
@@ -70,7 +71,7 @@ Home
             ">
 
                         {{ gig.get_category_display}}
-                        {{gig.tasks|safe|truncatechars_html:1700}}
+                        {{gig.questions|safe|truncatechars_html:1700}}
                     </div>
                 </div>
                 <hr>
@@ -78,7 +79,8 @@ Home
                 <br>
                 <div class="gig-bottom">
 
-                    <img src="/media/{{gig.user.profile.logo}}" style="clip-path: circle(50.1% at 50% 50%); object-fit: cover;
+                    <img src="{% if gig.user.profile.logo %}{{MEDIA_URL}}{{gig.user.profile.logo}}{% else %} 
+                    {% static '/img/user2.png' %}{% endif %} {% if gig.user.profile.logo == none %}{% static '/img/user.png' %} {% endif %} " style="clip-path: circle(50.1% at 50% 50%); object-fit: cover;
                 top:9px; position: relative; margin-right:6px;"
                         width="40px" height="40px">
                     <span> {{gig.user.username}}<br></span>

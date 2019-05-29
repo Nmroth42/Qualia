@@ -1,3 +1,7 @@
+.idea
+venv
+local_settings.py
 __pycache__/
-db.sqlite3
-*.pyc
+*/__pycache__/
+*.py[cod]
+.pyc

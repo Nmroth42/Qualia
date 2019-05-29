@@ -12,7 +12,7 @@ from django.http import JsonResponse
 from django.contrib.contenttypes.models import ContentType
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
-# Create your views here.
+# Create your views here.z
 def home(request):
     return redirect(lending_page)
 

@@ -36,7 +36,7 @@
 
 
 
-<div class="row" style="padding: 8px;" :class="{'hide': isModuleView}">
+<div class="row" style="padding: 8px;" :class="{'hideview': isModuleView}">
 
     {% for gig in gigs %}
     <div class="wrapper-thumbnail col-lg-4">
@@ -72,7 +72,7 @@
 
 </div>
 
-<div class="row ListlView" style="padding: 8px;" :class="{'hide': !isModuleView}">
+<div class="row ListlView" style="padding: 8px;" :class="{'hideview': !isModuleView}">
     {% for gig in gigs %}
     <div class="wrapper-thumbnail col-lg-12">
         <div class="thumbnail  " style=" max-height: 450px ;

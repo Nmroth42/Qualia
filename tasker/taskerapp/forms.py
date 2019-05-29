@@ -31,16 +31,18 @@ class ProfileFormForEdit(forms.ModelForm):
     status = forms.CharField(label='About me', widget=forms.Textarea)
     class Meta:
         model = Profile
-        fields = ("status","logo",)
+        fields = ( "status","logo",)
 
 
 class GigForm(forms.ModelForm):
-    tasks = forms.CharField(label='Tasks', widget=forms.Textarea(attrs={'class': 'ckeditor'} ))
-    answers = forms.CharField(label='Answers', widget=forms.Textarea(attrs={'class': 'ckeditor'}))
+    questions = forms.CharField(label='Questions', widget=forms.Textarea(attrs={'class': 'ckeditor'} ))
+    answers = forms.CharField(label='Answers', widget=forms.Textarea(attrs={'class': 'ckeditor'} ))
+    #answers = forms.CharField(label='Answers', widget=forms.Textarea(attrs={'class': 'ckeditor'}))
     songfile = forms.FileField(label='Speaking', required=False)
     class Meta:
         model = Gig
-        fields = ["category", "tasks", "answers", "songfile", "status"]
+        fields = ["category", "questions", "answers", "songfile"]
+        # "answers", "songfile", "status"
 
 class CommentForm(forms.Form):
     

@@ -19,8 +19,10 @@ background: #F1F3F4;
   
 }
 .footer {
-    position: absolute;
-    width: 100% !important;
+   width: 100% ;
+    
+    position: relative;
+   margin-top:auto;
     display: inline-block;
 }
 .header {

@@ -1,8 +1,9 @@
+
 new Vue({
     delimiters: ['${', '}$'],
     el: '#app',
     data: {
-        isOpen: true,
+        isOpen: false,
         message: 'menu',
         isModuleView: false,
         messageView:'view_day'
@@ -11,10 +12,10 @@ new Vue({
     toggleHeaderUser() {
             this.isOpen = !this.isOpen
             if ((this.isOpen) == true) {
-                this.message = 'menu'
+                this.message = 'close'
             }
             if ((this.isOpen) == false) {
-                this.message = 'close'
+                this.message = 'menu'
             }
         },
     toggleSelectView() {

@@ -5,7 +5,8 @@
 
 <div class="text-center" style="display: inline-flex;  flex-wrap: wrap; width: 100%; background:white; border:1px solid #DADCE0; ">
     <div class="profile_1" style=" padding:10px;  background-color: #F4F7F7; ">
-            <img class="logo" src=" {% if user.profile %} {{MEDIA_URL}}{{profile.logo}} {% else %} {% static 'img/man-under-tree-512.png' %} {% endif %}"
+            <img class="logo" src="{% if user.profile.logo %}{{MEDIA_URL}}{{request.user.profile.logo}}{% else %} 
+                {% static '/img/user2.png' %}{% endif %} {% if user.profile.logo == none %}{% static '/img/user.png' %} {% endif %} "
             width="200" height="200" style="margin: 20px auto;">
                <h3>{{profile.user.username}} </h3> 
                 <p>

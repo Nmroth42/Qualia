@@ -4,41 +4,40 @@
 {% load bootstrap3%}
 
 
-<style>
+ <style>
     .Hide {
         display: none;
     }
-</style>
-<div class="row">
-    <div class="col-md-12">
-        <div class="card" style="margin-bottom:0px; border-radius: 0px;">
+</style> 
+
+    <div class="col-md-12" style="padding: 0px !important;">
+        <div class="card" style="margin-bottom:0px; margin:0px !important; border-radius: 0px; overflow-x: scroll;">
             <div style="padding:20px;">
                 <h5 class="text-center"> {{ gig.get_category_display}}
                 </h5>
                 <hr>
 
 
-                <h5 class="text-center "> Tasks </h5>
+                <h5 class="text-center "> - - - Question - - -  </h5>
 
-                {{gig.tasks|safe}}
-                <!-- <img src="/media/{{gig.photo}}" style="display: block;margin: auto;" alt="" class="img-fluid ">-->
-
-
+                {{gig.questions|safe}}
+                  <img src="/media/{{gig.photo}}" style="display: block;margin: auto;" alt="" class="img-fluid "> 
 
 
-                <h5 class="text-center "> Answers </h5>
+
+                 <h5 class="text-center "> - - - Answers - - -</h5>
 
 
                 {{gig.answers|safe}}
 
                 <h5 class="text-center">
-                    Speaking
+                   - - - Speaking - - -
                 </h5>
 
                 <audio style="background: rgb(255, 255, 255); width: 100%;" class="horizontal-alignment" controls>
                     <source src="/media/{{gig.songfile}}" type="audio/mpeg">
 
-                </audio>
+                </audio>  
 
 
 
@@ -52,12 +51,19 @@
             <div style="padding:20px;">
 
 
-                <img src="/media/{{gig.user.profile.logo}}" style="clip-path: circle(50.1% at 50% 50%); object-fit: cover;"
+                <img src="{% if gig.user.profile.logo %}{{MEDIA_URL}}{{gig.user.profile.logo}}{% else %} 
+                {% static '/img/user2.png' %}{% endif %} {% if gig.user.profile.logo == none %}{% static '/img/user.png' %} {% endif %} " style="clip-path: circle(50.1% at 50% 50%); object-fit: cover;"
                     width="85px" height="85px">
                 <div style="display:inline-block; position: absolute; margin-left:10px;">
-                    {{profile.user.username}}
+                    <span style="color:rgba(0, 0, 0, 0.5);"> First name: </span> {{profile.user.first_name}}
                     <br>
-                    {{profile.status}}
+                    <span style="color:rgba(0, 0, 0, 0.5);">Last name: </span> {{profile.user.last_name}}
+                    <br>
+                    
+                   
+                    <span style="color:rgba(0, 0, 0, 0.5);"> About me: </span> {{profile.status}}
+                    <br>
+                    
 
                 </div>
 
@@ -75,11 +81,11 @@
 
         <div class="comment-wrapper" style=" padding:20px;border:1px solid rgba(0, 123, 255, 0.287);">
                 <div style="background: #F4F7F7; padding:10px; border-radius:10px;">
-                         {{comment.user}}
-                        <span CLASS="float-right"><a href="{% url 'profile' comment.user %}">See profile</a></span>
+                    {{comment.user.profile.role}}
+                        <span CLASS="float-right"><a href="{% url 'profile' comment.user %}"> {{comment.user.first_name}} {{comment.user.last_name}}</a></span>
                     </div>
               
-               <div style="padding:12px;padding-bottom:0px">
+               <div style="padding:12px;padding-bottom:px">
             {{comment.content|safe}}
             
         </div>
@@ -116,7 +122,7 @@
 
 
 
-</div>
+
 
 
 

@@ -12,9 +12,11 @@ class Profile(models.Model):
     status = models.CharField(max_length=500,  blank=True, null=True)
     logo = models.ImageField(upload_to='task_logo/', blank=True, null=True)
     role = models.CharField(max_length=30, blank=True)
+   
     
     def __str__(self):
-        return self.name
+        return str(self.user) if self.user else ''
+       
 
 class Gig(models.Model): 
     CATEGORY_CHOICES = (
@@ -24,8 +26,9 @@ class Gig(models.Model):
     )
     
     category = models.CharField(max_length=50, choices=CATEGORY_CHOICES)
+    questions = RichTextField(blank=True, null=True)
     answers = RichTextField(blank=True, null=True)
-    tasks = RichTextField(blank=True, null=True)
+    # tasks = RichTextField(blank=True, null=True)
     status = models.BooleanField(default=True)
     user = models.ForeignKey(User)
     songfile = models.FileField(upload_to='songs', blank=True)
@@ -46,5 +49,5 @@ class Comment(models.Model):
     content_object = GenericForeignKey('content_type', 'object_id')
 
     def __str__(self):
-        return self.name
+        return str(self.user) if self.user else ''
 # Create your models here.
