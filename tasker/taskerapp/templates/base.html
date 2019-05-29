@@ -41,8 +41,8 @@
 
                 <div class="headerMainWrapper">
                     <div>  <a href="{% url 'task-home' %}"> Main  </a> <a class="" href="{% url 'search' %}">Search</a> 
-                        {% if user.profile.role == 'learner' %}  <a href="{% url 'create-gig' %}">Ask a Question</a> {% endif %}
-                        {% if user.profile.role == 'learner' %}   <a href="{% url 'my-gigs' %}" >My Questions</a>{% endif %}</div>
+                        {% if user.profile.role == 'learner' %}  <a href="{% url 'create-gig' %}">Ask Question</a> {% endif %}
+                        {% if user.profile.role == 'learner' %}   <a href="{% url 'my-gigs' %}" >My List</a>{% endif %}</div>
                 </div>
                 <div class="headerUserWrapper" >
                     <div class="headerUser">
@@ -97,8 +97,8 @@
                   
 
                     <a href="{% url 'task-home' %}" class="list-group-item "> Main page </a>
-                    {% if user.profile.role == 'learner' %}  <a href="{% url 'my-gigs' %}" class="list-group-item">My gigs</a> {% endif %}
-                    {% if user.profile.role == 'learner' %}   <a href="{% url 'create-gig' %}" class="list-group-item">Create a gig</a> {% endif %}
+                    {% if user.profile.role == 'learner' %}  <a href="{% url 'my-gigs' %}" class="list-group-item">My List</a> {% endif %}
+                    {% if user.profile.role == 'learner' %}   <a href="{% url 'create-gig' %}" class="list-group-item">Ask a Question</a> {% endif %}
                     <a class="list-group-item" href="{% url 'search' %}">Search</a> 
 
                 </span>
